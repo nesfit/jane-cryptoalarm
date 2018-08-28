@@ -1,8 +1,10 @@
 .env
-/volumes/*
-/volumes/*/*
-!volumes/storage/
+volumes/*
+!volumes/storage
+
+volumes/storage/*
 !volumes/storage/framework
+
+volumes/storage/framework/*
 !volumes/storage/framework/cache
-!volumes/storage/framework/sessions
-!volumes/storage/framework/views
+!volumes/storage/framework/README.md
