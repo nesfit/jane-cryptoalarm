@@ -4,16 +4,18 @@ services:
     build:
       context: ./cryptoalarm-app/
       dockerfile: Dockerfile
+    image: cryptoalarm-app
     container_name: cryptoalarm-app
     depends_on:
       - "postgres"
       - "web"
     volumes:
-      - ./cryptoalarm-app/config.json:/config.json
+      - ./cryptoalarm-app/python/config.json:/config.json
   web:
     build:
       context: ./cryptoalarm-web/
       dockerfile: Dockerfile
+    image: cryptoalarm-web
     container_name: cryptoalarm-web
     working_dir: /var/www
     depends_on:
