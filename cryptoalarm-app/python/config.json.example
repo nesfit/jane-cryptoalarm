@@ -1,0 +1,26 @@
+{
+    "db": "dbname=<database> user=<username> host=<hostname> password=<secret>",
+    "coins": [],
+    "urls": {
+        "BTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "LTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "DASH":"http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+	"BCH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+	"ZEC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+	"ETH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>"
+    },
+    "smtp": {
+        "server": "<smtpserver>",
+        "port": <smtpport>,
+        "username": "<smtpusername>",
+        "password": "<smtppassword>"
+    },
+    "timeout": {
+        "connect": 2,
+        "read": 20
+    },
+    "notify_interval": 60,
+    "reload_interval": 3600,
+    "retry_interval_min": 5,
+    "retry_interval_max": 3600
+}
