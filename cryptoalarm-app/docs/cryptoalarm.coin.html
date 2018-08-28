@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module cryptoalarm.coin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="cryptoalarm.html"><font color="#ffffff">cryptoalarm</font></a>.<a href="cryptoalarm.html"><font color="#ffffff">cryptoalarm</font></a>.coin</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/lv/ownCloud/FIT/DP/src/cryptoalarm/coin.py">/home/lv/ownCloud/FIT/DP/src/cryptoalarm/cryptoalarm/coin.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;defines&nbsp;classes&nbsp;for&nbsp;interactions&nbsp;with&nbsp;blockchains&nbsp;of&nbsp;cryptocurrencies&nbsp;<br>
+Bitcoin,&nbsp;Bitcoin&nbsp;Cash,&nbsp;Litecoin,&nbsp;Dash,&nbsp;Zcash&nbsp;and&nbsp;Ethereum.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#Coin">Coin</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#BTC">BTC</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#BCH">BCH</a>
+</font></dt><dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#DASH">DASH</a>
+</font></dt><dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#LTC">LTC</a>
+</font></dt><dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#ZEC">ZEC</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.coin.html#ETH">ETH</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BCH">class <strong>BCH</strong></a>(<a href="cryptoalarm.coin.html#BTC">BTC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BCH">BCH</a>&nbsp;encapsulates&nbsp;the&nbsp;interactions&nbsp;with&nbsp;cryptocurrency&nbsp;Bitcoin&nbsp;Cash<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#BCH">BCH</a></dd>
+<dd><a href="cryptoalarm.coin.html#BTC">BTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 600)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#BTC">BTC</a>:<br>
+<dl><dt><a name="BCH-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BCH-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BCH-process_inputs"><strong>process_inputs</strong></a>(self, input)</dt><dd><tt>Find&nbsp;addresses&nbsp;used&nbsp;as&nbsp;output&nbsp;for&nbsp;each&nbsp;input&nbsp;transaction&nbsp;as&nbsp;specified&nbsp;by&nbsp;&lt;input&gt;<br>
+&nbsp;<br>
+:param&nbsp;input:&nbsp;input&nbsp;transaction<br>
+:return:&nbsp;list&nbsp;of&nbsp;address</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="BCH-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="BCH-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="BCH-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="BCH-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="BCH-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="BCH-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BTC">class <strong>BTC</strong></a>(<a href="cryptoalarm.coin.html#Coin">Coin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BTC">BTC</a>&nbsp;implements&nbsp;the&nbsp;intercations&nbsp;with&nbsp;Bitcoin&nbsp;cryptocurrency<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#BTC">BTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BTC-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BTC-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="BTC-process_inputs"><strong>process_inputs</strong></a>(self, input)</dt><dd><tt>Find&nbsp;addresses&nbsp;used&nbsp;as&nbsp;output&nbsp;for&nbsp;each&nbsp;input&nbsp;transaction&nbsp;as&nbsp;specified&nbsp;by&nbsp;&lt;input&gt;<br>
+&nbsp;<br>
+:param&nbsp;input:&nbsp;input&nbsp;transaction<br>
+:return:&nbsp;list&nbsp;of&nbsp;address</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 900)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="BTC-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="BTC-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="BTC-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="BTC-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="BTC-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="BTC-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Coin">class <strong>Coin</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Coin">Coin</a>&nbsp;specifies&nbsp;interface&nbsp;for&nbsp;cryptocurrency&nbsp;classes&nbsp;used&nbsp;in&nbsp;Monitor&nbsp;and&nbsp;implements&nbsp;wrapper&nbsp;for&nbsp;RPC&nbsp;calls<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Coin-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="Coin-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="Coin-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Coin-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="Coin-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="Coin-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="Coin-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>block_time</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DASH">class <strong>DASH</strong></a>(<a href="cryptoalarm.coin.html#BTC">BTC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DASH">DASH</a>&nbsp;encapsulates&nbsp;the&nbsp;interactions&nbsp;with&nbsp;cryptocurrency&nbsp;Dash<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#DASH">DASH</a></dd>
+<dd><a href="cryptoalarm.coin.html#BTC">BTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 150)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#BTC">BTC</a>:<br>
+<dl><dt><a name="DASH-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="DASH-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="DASH-process_inputs"><strong>process_inputs</strong></a>(self, input)</dt><dd><tt>Find&nbsp;addresses&nbsp;used&nbsp;as&nbsp;output&nbsp;for&nbsp;each&nbsp;input&nbsp;transaction&nbsp;as&nbsp;specified&nbsp;by&nbsp;&lt;input&gt;<br>
+&nbsp;<br>
+:param&nbsp;input:&nbsp;input&nbsp;transaction<br>
+:return:&nbsp;list&nbsp;of&nbsp;address</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="DASH-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="DASH-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="DASH-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DASH-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="DASH-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="DASH-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ETH">class <strong>ETH</strong></a>(<a href="cryptoalarm.coin.html#Coin">Coin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ETH">ETH</a>&nbsp;encapsulates&nbsp;the&nbsp;interactions&nbsp;with&nbsp;cryptocurrency&nbsp;Ethereum<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#ETH">ETH</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ETH-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="ETH-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ERC20_TRANSFER_PREFIX</strong> = '0xa9059cbb'</dl>
+
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 15)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="ETH-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="ETH-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="ETH-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ETH-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="ETH-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="ETH-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LTC">class <strong>LTC</strong></a>(<a href="cryptoalarm.coin.html#BTC">BTC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#LTC">LTC</a>&nbsp;encapsulates&nbsp;the&nbsp;interactions&nbsp;with&nbsp;cryptocurrency&nbsp;Litecoin<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#LTC">LTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#BTC">BTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 150)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#BTC">BTC</a>:<br>
+<dl><dt><a name="LTC-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="LTC-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="LTC-process_inputs"><strong>process_inputs</strong></a>(self, input)</dt><dd><tt>Find&nbsp;addresses&nbsp;used&nbsp;as&nbsp;output&nbsp;for&nbsp;each&nbsp;input&nbsp;transaction&nbsp;as&nbsp;specified&nbsp;by&nbsp;&lt;input&gt;<br>
+&nbsp;<br>
+:param&nbsp;input:&nbsp;input&nbsp;transaction<br>
+:return:&nbsp;list&nbsp;of&nbsp;address</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="LTC-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="LTC-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="LTC-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LTC-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="LTC-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="LTC-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ZEC">class <strong>ZEC</strong></a>(<a href="cryptoalarm.coin.html#BTC">BTC</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ZEC">ZEC</a>&nbsp;encapsulates&nbsp;the&nbsp;interactions&nbsp;with&nbsp;cryptocurrency&nbsp;Zcash<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.coin.html#ZEC">ZEC</a></dd>
+<dd><a href="cryptoalarm.coin.html#BTC">BTC</a></dd>
+<dd><a href="cryptoalarm.coin.html#Coin">Coin</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>block_time</strong> = datetime.timedelta(0, 150)</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#BTC">BTC</a>:<br>
+<dl><dt><a name="ZEC-get_block"><strong>get_block</strong></a>(self, number)</dt><dd><tt>Get&nbsp;block&nbsp;of&nbsp;given&nbsp;number<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_block_creation_time"><strong>get_block_creation_time</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;datetime</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_block_hash"><strong>get_block_hash</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;hash&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;hash</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_block_transactions"><strong>get_block_transactions</strong></a>(self, number=None)</dt><dd><tt>Get&nbsp;transactions&nbsp;of&nbsp;block&nbsp;with&nbsp;number&nbsp;&lt;number&gt;&nbsp;or&nbsp;currently&nbsp;processed&nbsp;block<br>
+&nbsp;<br>
+:param&nbsp;number:&nbsp;block&nbsp;number<br>
+:return:&nbsp;list&nbsp;of&nbsp;transactions</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_last_block_number"><strong>get_last_block_number</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;number&nbsp;of&nbsp;last&nbsp;existing&nbsp;block<br>
+&nbsp;<br>
+:return:&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_transaction"><strong>get_transaction</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;transaction&nbsp;with&nbsp;hash&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="ZEC-get_transaction_io"><strong>get_transaction_io</strong></a>(self, tx_hash)</dt><dd><tt>Get&nbsp;inputs&nbsp;and&nbsp;ouputs&nbsp;of&nbsp;transation&nbsp;&lt;tx_hash&gt;<br>
+&nbsp;<br>
+:param&nbsp;tx_hash:&nbsp;transaction&nbsp;hash<br>
+:return:&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="ZEC-process_inputs"><strong>process_inputs</strong></a>(self, input)</dt><dd><tt>Find&nbsp;addresses&nbsp;used&nbsp;as&nbsp;output&nbsp;for&nbsp;each&nbsp;input&nbsp;transaction&nbsp;as&nbsp;specified&nbsp;by&nbsp;&lt;input&gt;<br>
+&nbsp;<br>
+:param&nbsp;input:&nbsp;input&nbsp;transaction<br>
+:return:&nbsp;list&nbsp;of&nbsp;address</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><a name="ZEC-__init__"><strong>__init__</strong></a>(self, config, stop)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Coin">Coin</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<dl><dt><a name="ZEC-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<dl><dt><a name="ZEC-__unicode__"><strong>__unicode__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ZEC-get_block_time"><strong>get_block_time</strong></a>(self)</dt><dd><tt>Get&nbsp;block&nbsp;time&nbsp;of&nbsp;cryptocurrency<br>
+&nbsp;<br>
+:return:&nbsp;block&nbsp;time</tt></dd></dl>
+
+<dl><dt><a name="ZEC-rpc"><strong>rpc</strong></a>(self, method, *args, **kwargs)</dt><dd><tt>Perform&nbsp;RPC&nbsp;call&nbsp;of&nbsp;method&nbsp;&lt;method&gt;&nbsp;with&nbsp;given&nbsp;arguments.<br>
+&nbsp;<br>
+Failed&nbsp;requests&nbsp;are&nbsp;repeated&nbsp;until&nbsp;data&nbsp;is&nbsp;returned&nbsp;or&nbsp;until&nbsp;stop&nbsp;event&nbsp;is&nbsp;set.<br>
+Requests&nbsp;are&nbsp;repeated&nbsp;in&nbsp;doubling&nbsp;intervals&nbsp;until&nbsp;max_interval&nbsp;is&nbsp;reached.<br>
+&nbsp;<br>
+:param&nbsp;method:&nbsp;method&nbsp;name<br>
+:return:dict</tt></dd></dl>
+
+<dl><dt><a name="ZEC-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;to&nbsp;cryptocurrency&nbsp;node<br>
+&nbsp;<br>
+:return:&nbsp;True&nbsp;for&nbsp;succesfull&nbsp;connection</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="cryptoalarm.coin.html#Coin">Coin</a>:<br>
+<dl><dt><strong>block</strong> = None</dl>
+
+<dl><dt><strong>reraise</strong> = False</dl>
+
+<dl><dt><strong>url</strong> = None</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-reduce"><strong>reduce</strong></a>(...)</dt><dd><tt><a href="#-reduce">reduce</a>(function,&nbsp;sequence[,&nbsp;initial])&nbsp;-&gt;&nbsp;value<br>
+&nbsp;<br>
+Apply&nbsp;a&nbsp;function&nbsp;of&nbsp;two&nbsp;arguments&nbsp;cumulatively&nbsp;to&nbsp;the&nbsp;items&nbsp;of&nbsp;a&nbsp;sequence,<br>
+from&nbsp;left&nbsp;to&nbsp;right,&nbsp;so&nbsp;as&nbsp;to&nbsp;reduce&nbsp;the&nbsp;sequence&nbsp;to&nbsp;a&nbsp;single&nbsp;value.<br>
+For&nbsp;example,&nbsp;<a href="#-reduce">reduce</a>(lambda&nbsp;x,&nbsp;y:&nbsp;x+y,&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5])&nbsp;calculates<br>
+((((1+2)+3)+4)+5).&nbsp;&nbsp;If&nbsp;initial&nbsp;is&nbsp;present,&nbsp;it&nbsp;is&nbsp;placed&nbsp;before&nbsp;the&nbsp;items<br>
+of&nbsp;the&nbsp;sequence&nbsp;in&nbsp;the&nbsp;calculation,&nbsp;and&nbsp;serves&nbsp;as&nbsp;a&nbsp;default&nbsp;when&nbsp;the<br>
+sequence&nbsp;is&nbsp;empty.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>logger</strong> = &lt;Logger cryptoalarm.coin (WARNING)&gt;</td></tr></table>
+</body></html>

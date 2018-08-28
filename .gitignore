@@ -1,0 +1,8 @@
+.env
+/volumes/*
+/volumes/*/*
+!volumes/storage/
+!volumes/storage/framework
+!volumes/storage/framework/cache
+!volumes/storage/framework/sessions
+!volumes/storage/framework/views

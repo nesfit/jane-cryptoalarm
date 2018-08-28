@@ -1,0 +1,26 @@
+{
+    "db": "dbname=cryptoalarm user=cryptoalarmdbuser host=cryptoalarm-postgres password=v1e00bpglo1hixdf88",
+    "coins": [],
+    "urls": {
+        "BTC": "http://bitcoin:local321@147.229.14.222:8332",
+        "LTC": "http://bitcoin:local321@147.229.14.222:9332",
+        "DASH": "http://dash:local321@147.229.14.222:9998",
+	"BCH": "http://bitcoin:local321@147.229.14.222:9996",
+	"ZEC": "",
+	"ETH": ""
+    },
+    "smtp": {
+        "server": "smtp.mailtrap.io",
+        "port": 2525,
+        "username": "abdbe12231e4c7",
+        "password": "f238833e33c71c"
+    },
+    "timeout": {
+        "connect": 2,
+        "read": 20
+    },
+    "notify_interval": 60,
+    "reload_interval": 3600,
+    "retry_interval_min": 5,
+    "retry_interval_max": 3600
+}

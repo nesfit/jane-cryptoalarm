@@ -1,0 +1,87 @@
+version: '3.3'
+services:
+  app:
+    build:
+      context: ./cryptoalarm-app/
+      dockerfile: Dockerfile
+    container_name: cryptoalarm-app
+    depends_on:
+      - "postgres"
+      - "web"
+    volumes:
+      - ./cryptoalarm-app/config.json:/config.json
+  web:
+    build:
+      context: ./cryptoalarm-web/
+      dockerfile: Dockerfile
+    container_name: cryptoalarm-web
+    working_dir: /var/www
+    depends_on:
+      - "postgres"
+    volumes:
+      - web_data:/var/www
+      - storage_data:/var/www/storage
+      - bootstrap_data:/var/www/bootstrap/cache
+
+  nginx:
+    image: nginx:latest
+    working_dir: /var/www
+    container_name: cryptoalarm-nginx
+    depends_on:
+      - "web"
+    volumes:
+      - web_data:/var/www
+      - ./nginx/certs:/etc/letsencrypt
+      - ./nginx/vhost.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+
+  postgres:
+    image: postgres:latest
+    container_name: cryptoalarm-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: cryptoalarm-adminer
+    restart: always
+    depends_on:
+      - "postgres"
+    ports:
+      - 8080:8080
+
+
+networks:
+  default:
+    external:
+      name: ${NETWORK}
+
+volumes:
+  postgres_data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/postgres"
+
+  web_data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/web"
+
+  storage_data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/storage"
+
+  bootstrap_data:
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/bootstrap"

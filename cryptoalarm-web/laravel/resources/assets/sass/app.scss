@@ -1,0 +1,19 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Noty
+@import "~noty/src/noty";
+@import "~noty/src/themes/metroui";
+
+
+select option:disabled {
+    background-color: #999999;
+    font-weight: bold;
+}

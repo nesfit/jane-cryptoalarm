@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module cryptoalarm.notifier</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="cryptoalarm.html"><font color="#ffffff">cryptoalarm</font></a>.<a href="cryptoalarm.html"><font color="#ffffff">cryptoalarm</font></a>.notifier</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/lv/ownCloud/FIT/DP/src/cryptoalarm/notifier.py">/home/lv/ownCloud/FIT/DP/src/cryptoalarm/cryptoalarm/notifier.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;speficies&nbsp;class&nbsp;<a href="#Notifier">Notifier</a>&nbsp;for&nbsp;transaction&nbsp;processing&nbsp;based&nbsp;on&nbsp;specified&nbsp;watchlists.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+<a href="queue.html">queue</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="smtplib.html">smtplib</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.notifier.html#Notifier">Notifier</a>
+</font></dt><dt><font face="helvetica, arial"><a href="cryptoalarm.notifier.html#Sender">Sender</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="cryptoalarm.notifier.html#Mailer">Mailer</a>
+</font></dt><dt><font face="helvetica, arial"><a href="cryptoalarm.notifier.html#Rest">Rest</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Mailer">class <strong>Mailer</strong></a>(<a href="cryptoalarm.notifier.html#Sender">Sender</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Mailer">Mailer</a>&nbsp;encapsulates&nbsp;the&nbsp;generation&nbsp;of&nbsp;email&nbsp;messages&nbsp;from&nbsp;notification<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.notifier.html#Mailer">Mailer</a></dd>
+<dd><a href="cryptoalarm.notifier.html#Sender">Sender</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Mailer-__init__"><strong>__init__</strong></a>(self, config, subject, email, template)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Mailer">Mailer</a>&nbsp;<a href="builtins.html#object">object</a><br>
+&nbsp;<br>
+:param&nbsp;confog:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;subject:&nbsp;string<br>
+:param&nbsp;email:&nbsp;source&nbsp;email<br>
+:param&nbsp;template:&nbsp;default&nbsp;email&nbsp;template</tt></dd></dl>
+
+<dl><dt><a name="Mailer-build_body"><strong>build_body</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Build&nbsp;notification&nbsp;body<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transactions<br>
+:return:&nbsp;notification&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="Mailer-build_message"><strong>build_message</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Build&nbsp;email&nbsp;notification<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transactions<br>
+:return:&nbsp;notification&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="Mailer-connect"><strong>connect</strong></a>(self)</dt><dd><tt>Connet&nbsp;to&nbsp;SMTP&nbsp;server</tt></dd></dl>
+
+<dl><dt><a name="Mailer-send"><strong>send</strong></a>(self)</dt><dd><tt>Send&nbsp;notifications</tt></dd></dl>
+
+<dl><dt><a name="Mailer-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;of&nbsp;SMTP&nbsp;server</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>email</strong> = None</dl>
+
+<dl><dt><strong>server</strong> = None</dl>
+
+<dl><dt><strong>subject</strong> = None</dl>
+
+<dl><dt><strong>template</strong> = None</dl>
+
+<dl><dt><strong>types</strong> = ['mail', 'both']</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.notifier.html#Sender">Sender</a>:<br>
+<dl><dt><a name="Mailer-add"><strong>add</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Submit&nbsp;&lt;address&gt;'s&nbsp;transactions&nbsp;to&nbsp;notify&nbsp;queue<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transaction&nbsp;address&nbsp;was&nbsp;involved&nbsp;in</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.notifier.html#Sender">Sender</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Notifier">class <strong>Notifier</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Notifier">Notifier</a>&nbsp;handles&nbsp;transaction&nbsp;processing&nbsp;based&nbsp;on&nbsp;specified&nbsp;watchlists<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Notifier-__init__"><strong>__init__</strong></a>(self, config, database)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Notifier">Notifier</a>&nbsp;objects<br>
+&nbsp;<br>
+:param&nbsp;config:&nbsp;configuration&nbsp;dict<br>
+:param&nbsp;database:&nbsp;Database&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Notifier-add"><strong>add</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Submit&nbsp;&lt;address&gt;'s&nbsp;transactions&nbsp;to&nbsp;notify&nbsp;queue&nbsp;of&nbsp;all&nbsp;senders<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transaction&nbsp;address&nbsp;was&nbsp;involved&nbsp;in</tt></dd></dl>
+
+<dl><dt><a name="Notifier-add_transaction"><strong>add_transaction</strong></a>(self, coin, block_number, block_id, hash, addresses)</dt><dd><tt>Insert&nbsp;transaction&nbsp;in&nbsp;processing&nbsp;queue<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;block_number:&nbsp;number&nbsp;of&nbsp;block&nbsp;that&nbsp;includes&nbsp;given&nbsp;transaction<br>
+:param&nbsp;block_id:&nbsp;id&nbsp;of&nbsp;block&nbsp;record&nbsp;in&nbsp;database<br>
+:param&nbsp;hash:&nbsp;transaction&nbsp;hash<br>
+:param&nbsp;addresses:&nbsp;dict&nbsp;of&nbsp;input&nbsp;and&nbsp;output&nbsp;addresses&nbsp;of&nbsp;transaction</tt></dd></dl>
+
+<dl><dt><a name="Notifier-load"><strong>load</strong></a>(self)</dt><dd><tt>Load&nbsp;information&nbsp;about&nbsp;watched&nbsp;addresses&nbsp;and&nbsp;its&nbsp;users</tt></dd></dl>
+
+<dl><dt><a name="Notifier-notify"><strong>notify</strong></a>(self)</dt><dd><tt>Notify&nbsp;users&nbsp;about&nbsp;transactions&nbsp;involving&nbsp;monitored&nbsp;addresses</tt></dd></dl>
+
+<dl><dt><a name="Notifier-process_remaining"><strong>process_remaining</strong></a>(self)</dt><dd><tt>Process&nbsp;transaction&nbsp;inserted&nbsp;in&nbsp;queue&nbsp;after&nbsp;shutdown&nbsp;was&nbsp;signalized</tt></dd></dl>
+
+<dl><dt><a name="Notifier-process_transaction"><strong>process_transaction</strong></a>(self, coin, block_number, block_id, hash, addresses)</dt><dd><tt>Save&nbsp;transaction&nbsp;that&nbsp;involve&nbsp;addresses&nbsp;specified&nbsp;in&nbsp;watchlist<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;block_number:&nbsp;number&nbsp;of&nbsp;block&nbsp;that&nbsp;includes&nbsp;given&nbsp;transaction<br>
+:param&nbsp;block_id:&nbsp;id&nbsp;of&nbsp;block&nbsp;record&nbsp;in&nbsp;database<br>
+:param&nbsp;hash:&nbsp;transaction&nbsp;hash<br>
+:param&nbsp;addresses:&nbsp;dict&nbsp;of&nbsp;input&nbsp;and&nbsp;output&nbsp;addresses&nbsp;of&nbsp;transaction</tt></dd></dl>
+
+<dl><dt><a name="Notifier-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connection&nbsp;of&nbsp;each&nbsp;notification&nbsp;sender</tt></dd></dl>
+
+<dl><dt><a name="Notifier-worker"><strong>worker</strong></a>(self, stop)</dt><dd><tt>Indefinetly&nbsp;process&nbsp;transactions&nbsp;in&nbsp;queue<br>
+&nbsp;<br>
+:param&nbsp;stop:&nbsp;threading.Event&nbsp;to&nbsp;signalize&nbsp;shutdown</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>data</strong> = {}</dl>
+
+<dl><dt><strong>database</strong> = None</dl>
+
+<dl><dt><strong>last_load</strong> = None</dl>
+
+<dl><dt><strong>last_notify</strong> = None</dl>
+
+<dl><dt><strong>queue</strong> = &lt;queue.Queue object&gt;</dl>
+
+<dl><dt><strong>senders</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Rest">class <strong>Rest</strong></a>(<a href="cryptoalarm.notifier.html#Sender">Sender</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Rest">Rest</a>&nbsp;encapsulates&nbsp;the&nbsp;generation&nbsp;of&nbsp;rest&nbsp;notifications<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="cryptoalarm.notifier.html#Rest">Rest</a></dd>
+<dd><a href="cryptoalarm.notifier.html#Sender">Sender</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Rest-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Construct&nbsp;new&nbsp;<a href="#Rest">Rest</a>&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Rest-add"><strong>add</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Submit&nbsp;&lt;address&gt;'s&nbsp;transactions&nbsp;to&nbsp;notify&nbsp;queue&nbsp;only&nbsp;if&nbsp;user&nbsp;specified&nbsp;rest&nbsp;url<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transaction&nbsp;address&nbsp;was&nbsp;involved&nbsp;in</tt></dd></dl>
+
+<dl><dt><a name="Rest-build_message"><strong>build_message</strong></a>(self, coin, user, address, txs)</dt><dd><tt>Build&nbsp;dict&nbsp;for&nbsp;notification<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transactions<br>
+:return:&nbsp;notification&nbsp;dict</tt></dd></dl>
+
+<dl><dt><a name="Rest-send"><strong>send</strong></a>(self)</dt><dd><tt>Send&nbsp;notifications</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>types</strong> = ['rest', 'both']</dl>
+
+<hr>
+Methods inherited from <a href="cryptoalarm.notifier.html#Sender">Sender</a>:<br>
+<dl><dt><a name="Rest-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connectivity</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="cryptoalarm.notifier.html#Sender">Sender</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sender">class <strong>Sender</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Sender">Sender</a>&nbsp;defines&nbsp;the&nbsp;interface&nbsp;for&nbsp;each&nbsp;type&nbsp;of&nbsp;notification&nbsp;sender<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Sender-add"><strong>add</strong></a>(self, coin, explorer_url, user, address, txs)</dt><dd><tt>Submit&nbsp;&lt;address&gt;'s&nbsp;transactions&nbsp;to&nbsp;notify&nbsp;queue<br>
+&nbsp;<br>
+:param&nbsp;coin:&nbsp;Coin&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;explorer_url:&nbsp;string&nbsp;of&nbsp;url&nbsp;of&nbsp;blockchain&nbsp;explorer<br>
+:param&nbsp;user:&nbsp;dict&nbsp;with&nbsp;user&nbsp;information<br>
+:param&nbsp;address:&nbsp;address&nbsp;hash<br>
+:param&nbsp;txs:&nbsp;list&nbsp;of&nbsp;transaction&nbsp;address&nbsp;was&nbsp;involved&nbsp;in</tt></dd></dl>
+
+<dl><dt><a name="Sender-send"><strong>send</strong></a>(self)</dt><dd><tt>Send&nbsp;notifications</tt></dd></dl>
+
+<dl><dt><a name="Sender-test_connection"><strong>test_connection</strong></a>(self)</dt><dd><tt>Test&nbsp;connectivity</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>types</strong> = []</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>logger</strong> = &lt;Logger cryptoalarm.notifier (WARNING)&gt;</td></tr></table>
+</body></html>
