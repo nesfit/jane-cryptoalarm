@@ -23,8 +23,8 @@ config['coins'] = [
     coin.BCH, 
     coin.LTC,
     coin.DASH,
-#    coin.ZEC,
-#    coin.ETH,
+    coin.ZEC,
+    coin.ETH,
 ]
 
 m = Monitor(config)
