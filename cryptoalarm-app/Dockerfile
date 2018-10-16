@@ -1,9 +1,10 @@
 FROM python:3
+ADD python/requirements.txt /
+RUN pip install -r requirements.txt
+
 ADD python/run.py /
 ADD python/config.json /
-ADD python/requirements.txt /
 ADD python/cryptoalarm /cryptoalarm
-RUN pip install -r requirements.txt
-#RUN ./run.py --init
-#CMD sleep 3600
+
+#RUN sleep 3600
 CMD [ "python", "./run.py" ]
