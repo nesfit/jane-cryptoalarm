@@ -39,9 +39,9 @@ class Notifier():
         self.last_notify = datetime.now()
 
         mailer = Mailer(config,
-            database.get_value('email_subject'), 
-            database.get_value('email_from'), 
-            database.get_value('email_template')
+            self.config['notifier']['email_subject'], 
+            self.config['notifier']['email_from'], 
+            self.config['notifier']['email_template']
         )
         self.senders = [mailer, Rest()]
 
@@ -89,6 +89,7 @@ class Notifier():
         :param hash: transaction hash
         :param addresses: dict of input and output addresses of transaction
         """
+        #print(coin, block_number, block_id, hash, addresses)
         self.queue.put((coin, block_number, block_id, hash, addresses))
 
     def worker(self, stop):
@@ -97,15 +98,18 @@ class Notifier():
 
         :param stop: threading.Event to signalize shutdown
         """
+        #print(self.queue)
         while not stop.is_set() or not self.queue.empty(): 
+
             try:
                 coin, block_number, block_id, hash, addresses = self.queue.get(timeout=self.config['notify_interval'])
+                self.process_transaction(coin, block_number, block_id, hash, addresses)
+                self.queue.task_done()
+                
             except queue.Empty:
                 self.notify()
                 continue
-
-            self.process_transaction(coin, block_number, block_id, hash, addresses)
-            self.queue.task_done()
+                       
             if self.last_notify + timedelta(seconds=self.config['notify_interval']) < datetime.now():
                 self.notify()
 
@@ -135,9 +139,11 @@ class Notifier():
         :param addresses: dict of input and output addresses of transaction
         """
         coin_name = str(coin)
+        #print(coin, block_number, block_id, hash, addresses)
+        #print(self.data[coin_name]['data'].keys())
         for type in ['in', 'out']:
             intersect = set(self.data[coin_name]['data'].keys()) & addresses[type]
-
+            #print(intersect)
             for address in intersect:
                 self.data[coin_name]['data'][address]['txs'][type].add((block_number, block_id, hash))
 
@@ -166,11 +172,12 @@ class Notifier():
                 address_data['in'] = set()
                 address_data['out'] = set()
         
+        #print(self.senders)
         for sender in self.senders:
             sender.send()
 
         self.database.commit()
-        self.last_notify = datetime.now()
+        self.last_notify = datetime.now()       
 
     def add(self, coin, explorer_url, user, address, txs):
         """
@@ -182,13 +189,16 @@ class Notifier():
         :param address: address hash
         :param txs: list of transaction address was involved in
         """
+        logger.debug('notify.add')
+        #print(coin, user, txs)
         logger.debug('%s: add notification for user %s about %s', coin, user, txs)
+               
         self.database.insert_notifications(user['watchlist_id'], txs)
-
-        for sender in self.senders:
+        
+        for sender in self.senders:            
             if user['notify'] in sender.types:
+                logger.debug('notify.adding a new txs')
                 sender.add(coin, explorer_url, user, address, txs)
-
 
 class Sender():
     """
@@ -206,7 +216,8 @@ class Sender():
         :param address: address hash
         :param txs: list of transaction address was involved in
         """
-        self.queue.append((coin, explorer_url, user, address, list(txs)))
+        #self.queue.append((coin, explorer_url, user, address, list(txs)))
+        raise NotImplementedError()
 
     def send(self):
         """
@@ -229,7 +240,7 @@ class Mailer(Sender):
     template = None
     email = None
     subject = None
-    types = ['mail', 'both']
+    types = ['email', 'both']
 
     def __init__(self, config, subject, email, template):
         """
@@ -253,13 +264,34 @@ class Mailer(Sender):
         self.connect()
         self.server.quit()
 
+    def add(self, coin, explorer_url, user, address, txs):
+        """
+        Submit <address>'s transactions to notify queue
+
+        :param coin: Coin object
+        :param explorer_url: string of url of blockchain explorer
+        :param user: dict with user information
+        :param address: address hash
+        :param txs: list of transaction address was involved in
+        """                     
+        logger.debug('mailer.add')
+        self.queue.append((coin, explorer_url, user, address, list(txs)))
+
     def connect(self):
         """
         Connet to SMTP server
         """
-        self.server = smtplib.SMTP(self.config['smtp']['server'], self.config['smtp']['port'])
-        self.server.starttls()
-        self.server.login(self.config['smtp']['username'], self.config['smtp']['password'])
+        if self.config['smtp']['ssl'] == "tls":
+            self.server = smtplib.SMTP_SSL(self.config['smtp']['server'], self.config['smtp']['port'])
+        elif self.config['smtp']['ssl'] == "starttls":
+            self.server = smtplib.SMTP(self.config['smtp']['server'], self.config['smtp']['port'])
+            self.server.starttls()
+        else:
+            self.server = smtplib.SMTP(self.config['smtp']['server'], self.config['smtp']['port'])        
+        
+        #self.server.set_debuglevel(10)        
+        result = self.server.login(self.config['smtp']['username'], self.config['smtp']['password'])
+        logging.info(result)
 
     def build_body(self, coin, explorer_url, user, address, txs):
         """
@@ -277,11 +309,14 @@ class Mailer(Sender):
             template = user['email_template']
 
         txs_links = []
+        #print(txs)
+        txs = sorted(txs, key=lambda tx: tx[1])
+        #print(txs)
         for block_number, block_id, tx in txs:
-            tx_url = explorer_url + tx
+            tx_url = self.config['notifier']['server'] + coin + '/tx/' + tx
             txs_links.append('#{} <a href="{}">{}</a><br>'.format(block_number, tx_url, tx))
 
-        address_url = explorer_url + address
+        address_url = self.config['notifier']['server'] + coin + '/addr/' + address
         address_str = '<a href="{}">{}</a>'.format(address_url, address)
 
         return template.format(address=address_str, coin=coin, name=user['watchlist_name'], txs='\n'.join(txs_links))
@@ -307,27 +342,30 @@ class Mailer(Sender):
         msg['From'] = self.email
         msg['To'] = user['email']
         msg['Date'] = formatdate(time.time())
-
         return msg.as_string()
 
     def send(self):
         """
         Send notifications
         """
-        try:
-            self.connect()
-
-            while self.queue:
-                coin, explorer_url, user, address, txs = self.queue.pop()
-                message = self.build_message(coin, explorer_url, user, address, txs)
-                self.server.sendmail(self.email, [user['email']], message)
-
-            self.server.quit()
-            logger.info('MAIL sent')
-        except Exception as e:
-            logger.warn('MAIL failed')
-
-
+        logger.info('mail.send')
+        
+        if self.queue:
+            #print(self.queue)  
+            try:
+                self.connect()            
+                while self.queue:
+                    coin, explorer_url, user, address, txs = self.queue.pop()
+                    message = self.build_message(coin, explorer_url, user, address, txs)
+                    self.server.sendmail(self.email, [user['email']], message)
+                    logger.info('MAIL successfully sent')
+                self.server.quit()          
+            except Exception as e:
+                logger.warn(e)
+                logger.warn('MAIL failed')
+                
+        self.queue = []
+        
 class Rest(Sender):
     """
     Rest encapsulates the generation of rest notifications
@@ -391,8 +429,8 @@ class Rest(Sender):
                 logger.warn('REST timedout, will be repeated')
             except requests.exceptions.RequestException as e:
                 self.queue.append(data)
-                logger.warn('REST failed')
-        
+                logger.warn('REST failed')        
+            logger.info('REST sent')
+
         self.queue = new_queue
-        logger.info('REST sent')
 

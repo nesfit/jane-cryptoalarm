@@ -29,7 +29,7 @@ class Monitor():
         :param config: configuration dict
         """
         self.config = config
-        self.database = Database(config['db'])
+        self.database = Database(config['db'], self.config)
         self.notifier = Notifier(config, self.database)
 
         for coin in config['coins']:
@@ -125,7 +125,7 @@ class Monitor():
             
             database.delete_block(coin, number)
             number -= 1
-
+        #print("last_processed_block> ", number)
         return number
 
     def worker(self, coin):
@@ -134,12 +134,13 @@ class Monitor():
 
         :param coin: a class inherited from Coin
         """
-        database = Database(self.config['db'])
+        database = Database(self.config['db'], self.config)
 
         while not self.stop.is_set():
             current_number = self.last_processed_block(database, coin) + 1
             last_number, _ = coin.get_last_block_number()
 
+            #print(current_number, last_number)
             while current_number <= last_number:
                 if self.stop.is_set():
                     break

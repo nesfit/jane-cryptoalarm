@@ -13,7 +13,7 @@ class Database():
     conn = None
     cursor = None
 
-    def __init__(self, url):
+    def __init__(self, url, config):
         """
         Construct new Database object
 
@@ -21,6 +21,7 @@ class Database():
         """
         self.conn = psycopg2.connect(url)
         self.cursor = self.conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+        self.config = config
 
     def get_coin(self, name):
         """
@@ -35,7 +36,7 @@ class Database():
                 name,
                 explorer_url
             FROM
-                coins
+                ''' + self.config['tables']['coins'] + '''
             WHERE
                 name = %s
         '''
@@ -55,7 +56,7 @@ class Database():
                 name,
                 explorer_url
             FROM
-                coins
+                ''' + self.config['tables']['coins'] + '''
         '''
 
         self.cursor.execute(sql)
@@ -72,7 +73,7 @@ class Database():
             SELECT 
                 value
             FROM 
-                settings
+                ''' + self.config['tables']['settings'] + '''
             WHERE
                 key = %s
         '''
@@ -82,7 +83,7 @@ class Database():
 
     def get_addresses(self):
         """
-        Get all addresse
+        Get all watched addresse
 
         :return: list
         """
@@ -92,12 +93,12 @@ class Database():
                 a.hash "hash", 
                 c.name "coin" 
             FROM 
-                addresses a 
+                ''' + self.config['tables']['addresses'] + ''' a 
             JOIN 
-                coins c
+                ''' + self.config['tables']['coins'] + ''' c
             ON a.coin_id = c.id
             JOIN 
-                watchlists w
+                ''' + self.config['tables']['watchlists'] + ''' w
             ON w.address_id = a.id
         '''
         self.cursor.execute(sql)
@@ -122,9 +123,9 @@ class Database():
                 u.email "email",
                 u.rest_url "rest_url"
             FROM 
-                watchlists w 
+                ''' + self.config['tables']['watchlists'] + ''' w 
             JOIN 
-                users u
+                ''' + self.config['tables']['users'] + ''' u
             ON u.id = w.user_id
             WHERE w.address_id = %s AND w.type = %s
         '''
@@ -142,20 +143,20 @@ class Database():
             SELECT 
                 number 
             FROM 
-                blocks
+                ''' + self.config['tables']['blocks'] + '''
             WHERE 
                 id = (
                     SELECT 
                         MAX(id) 
                     FROM 
-                        blocks 
+                        ''' + self.config['tables']['blocks'] + ''' 
                     WHERE 
                         coin_id = %s
                 )
         '''
         self.cursor.execute(sql, (coin.db_id,))
         result = self.cursor.fetchone()
-
+        #print(result)
         return result['number'] if result else 0
 
     def get_block_hash(self, coin, number):
@@ -170,7 +171,7 @@ class Database():
             SELECT 
                 hash 
             FROM 
-                blocks
+                ''' + self.config['tables']['blocks'] + '''
             WHERE 
                 coin_id = %s AND number = %s
         '''
@@ -189,7 +190,7 @@ class Database():
         :return: id of inserted record
         """
         sql = '''
-            INSERT INTO blocks
+            INSERT INTO ''' + self.config['tables']['blocks'] + '''
                 (coin_id, number, hash)
             VALUES
                 (%s, %s, %s)
@@ -207,7 +208,7 @@ class Database():
         :param number: block number
         """
         sql = '''
-            DELETE FROM blocks
+            DELETE FROM ''' + self.config['tables']['blocks'] + '''
             WHERE 
                 coin_id = %s AND number = %s
         '''
@@ -221,8 +222,18 @@ class Database():
         :param watchlist_id: watchlist id
         :param txs: list of transactions
         """
-        sql = 'INSERT INTO notifications (watchlist_id, block_id, tx_hash, created_at) VALUES (%s, %s, %s, %s)'
-        self.cursor.executemany(sql, [(watchlist_id, tx[1], tx[2], datetime.now()) for tx in txs])
+        
+        #sql = 'INSERT INTO notifications (watchlist_id, block_id, tx_hash, created_at) VALUES (%s, %s, %s, %s)'
+        sql = '''
+            INSERT INTO ''' + self.config['tables']['notifications'] + ''' (watchlist_id, block_id, tx_hash, created_at) 
+            SELECT
+               %s, %s, %s, %s
+            WHERE NOT EXISTS (
+                SELECT * FROM ''' + self.config['tables']['notifications'] + ''' WHERE
+                    watchlist_id = %s AND tx_hash = %s
+            )
+        '''
+        self.cursor.executemany(sql, [(watchlist_id, tx[1], tx[2], datetime.now(), watchlist_id, tx[2]) for tx in txs])
     
     def commit(self):
         """

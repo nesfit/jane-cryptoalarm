@@ -5,12 +5,13 @@
         "BTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
         "LTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
         "DASH":"http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
-	"BCH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
-	"ZEC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
-	"ETH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>"
+        "BCH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "ZEC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "ETH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>"
     },
     "smtp": {
         "server": "<smtpserver>",
+        "ssl" : "tls|starttls|none",
         "port": <smtpport>,
         "username": "<smtpusername>",
         "password": "<smtppassword>"
@@ -22,5 +23,23 @@
     "notify_interval": 60,
     "reload_interval": 3600,
     "retry_interval_min": 5,
-    "retry_interval_max": 3600
+    "retry_interval_max": 3600,
+    
+    "tables": {
+        "blocks" : "blocks",
+        "coins" : "coins",
+        "settings" : "settings",
+        "watchlists" : "watchlists",
+        "addresses" : "addresses",
+        "notifications" : "notifications",
+        "users" : "users"
+    },
+    
+    "notifier": {
+        "server" : "http://<hostname>/",
+        "notification_url" : "http://<hostname>/api-endpoint",
+        "email_subject" : "[Cryptoalarm] Notification {name}",
+        "email_from" : "coinomon-alarm@cryptoalarm.tld",
+        "email_template" : "<h1>Cryptoalarm {name}</h1>\n<p>triggered for {coin} address {address}</p>\n<p>check following transactions</p>\n<p>\n{txs}\n</p>"
+    }   
 }
