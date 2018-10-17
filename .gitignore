@@ -10,4 +10,5 @@ volumes/storage/*
 volumes/storage/framework/*
 !volumes/storage/framework/cache
 !volumes/storage/framework/README.md
+!volumes/storage/framework/cache/data
 

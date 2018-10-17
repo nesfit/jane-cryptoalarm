@@ -12,6 +12,7 @@ from email.mime.multipart import MIMEMultipart
 from email.utils import formatdate
 import time
 import re
+from time import sleep
 
 logger = logging.getLogger(__name__)
 
@@ -316,7 +317,7 @@ class Mailer(Sender):
             tx_url = self.config['notifier']['server'] + coin + '/tx/' + tx
             txs_links.append('#{} <a href="{}">{}</a><br>'.format(block_number, tx_url, tx))
 
-        address_url = self.config['notifier']['server'] + coin + '/addr/' + address
+        address_url = self.config['notifier']['server'] + coin + '/address/' + address
         address_str = '<a href="{}">{}</a>'.format(address_url, address)
 
         return template.format(address=address_str, coin=coin, name=user['watchlist_name'], txs='\n'.join(txs_links))
@@ -348,18 +349,19 @@ class Mailer(Sender):
         """
         Send notifications
         """
-        logger.info('mail.send')
-        
+        logger.debug('mail.send')
+
         if self.queue:
-            #print(self.queue)  
+            #print(self.queue)
             try:
-                self.connect()            
+                self.connect()
                 while self.queue:
                     coin, explorer_url, user, address, txs = self.queue.pop()
                     message = self.build_message(coin, explorer_url, user, address, txs)
+                    sleep(0.750)
                     self.server.sendmail(self.email, [user['email']], message)
                     logger.info('MAIL successfully sent')
-                self.server.quit()          
+                self.server.quit()
             except Exception as e:
                 logger.warn(e)
                 logger.warn('MAIL failed')
@@ -429,7 +431,7 @@ class Rest(Sender):
                 logger.warn('REST timedout, will be repeated')
             except requests.exceptions.RequestException as e:
                 self.queue.append(data)
-                logger.warn('REST failed')        
+                logger.warn('REST failed')
             logger.info('REST sent')
 
         self.queue = new_queue
