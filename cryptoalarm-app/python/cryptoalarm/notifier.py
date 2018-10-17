@@ -61,8 +61,7 @@ class Notifier():
         self.data = {}
 
         for coin in self.database.get_coins():
-            self.data[coin['name']] = {
-                'explorer_url': coin['explorer_url'],
+            self.data[coin['name']] = {                
                 'data': {},
             }
 
@@ -156,19 +155,19 @@ class Notifier():
 
         for coin_name in self.data:
             for address, address_data in self.data[coin_name]['data'].items():
-                explorer_url = self.data[coin_name]['explorer_url']
+                
                 # notify users with INOUT about IN and OUT tranasctions
                 if address_data['txs']['out'] or address_data['txs']['in']:
                     for user in address_data['users']['inout']: 
-                        self.add(coin_name, explorer_url, user, address, address_data['txs']['out'] | address_data['txs']['in'])
+                        self.add(coin_name, user, address, address_data['txs']['out'] | address_data['txs']['in'])
 
                 if address_data['txs']['out']:
                     for user in address_data['users']['out']: 
-                        self.add(coin_name, explorer_url, user, address, address_data['txs']['out'])
+                        self.add(coin_name, user, address, address_data['txs']['out'])
 
                 if address_data['txs']['in']:
                     for user in address_data['users']['in']: 
-                        self.add(coin_name, explorer_url, user, address, address_data['txs']['in'])
+                        self.add(coin_name, user, address, address_data['txs']['in'])
 
                 address_data['in'] = set()
                 address_data['out'] = set()
@@ -180,7 +179,7 @@ class Notifier():
         self.database.commit()
         self.last_notify = datetime.now()       
 
-    def add(self, coin, explorer_url, user, address, txs):
+    def add(self, coin, user, address, txs):
         """
         Submit <address>'s transactions to notify queue of all senders
 
@@ -199,7 +198,7 @@ class Notifier():
         for sender in self.senders:            
             if user['notify'] in sender.types:
                 logger.debug('notify.adding a new txs')
-                sender.add(coin, explorer_url, user, address, txs)
+                sender.add(coin, user, address, txs)
 
 class Sender():
     """
@@ -207,7 +206,7 @@ class Sender():
     """
     types = []
 
-    def add(self, coin, explorer_url, user, address, txs):
+    def add(self, coin, user, address, txs):
         """
         Submit <address>'s transactions to notify queue
 
@@ -265,7 +264,7 @@ class Mailer(Sender):
         self.connect()
         self.server.quit()
 
-    def add(self, coin, explorer_url, user, address, txs):
+    def add(self, coin, user, address, txs):
         """
         Submit <address>'s transactions to notify queue
 
@@ -276,7 +275,7 @@ class Mailer(Sender):
         :param txs: list of transaction address was involved in
         """                     
         logger.debug('mailer.add')
-        self.queue.append((coin, explorer_url, user, address, list(txs)))
+        self.queue.append((coin, user, address, list(txs)))
 
     def connect(self):
         """
@@ -294,7 +293,7 @@ class Mailer(Sender):
         result = self.server.login(self.config['smtp']['username'], self.config['smtp']['password'])
         logging.info(result)
 
-    def build_body(self, coin, explorer_url, user, address, txs):
+    def build_body(self, coin, user, address, txs):
         """
         Build notification body
 
@@ -328,7 +327,7 @@ class Mailer(Sender):
 
         return template.format(address=address_str, coin=coin, name=user['watchlist_name'], txs='\n'.join(txs_links))
 
-    def build_message(self, coin, explorer_url, user, address, txs):
+    def build_message(self, coin, user, address, txs):
         """
         Build email notification
 
@@ -339,7 +338,7 @@ class Mailer(Sender):
         :param txs: list of transactions
         :return: notification string
         """
-        body = self.build_body(coin, explorer_url, user, address, txs)
+        body = self.build_body(coin, user, address, txs)
         part1 = MIMEText(re.sub('<[^<]+?>', '', body), 'plain')
         part2 = MIMEText('<html>'+body+'</html>', 'html')
         msg = MIMEMultipart('alternative')
@@ -362,8 +361,8 @@ class Mailer(Sender):
             try:
                 self.connect()
                 while self.queue:
-                    coin, explorer_url, user, address, txs = self.queue.pop()
-                    message = self.build_message(coin, explorer_url, user, address, txs)
+                    coin, user, address, txs = self.queue.pop()
+                    message = self.build_message(coin, user, address, txs)
                     sleep(0.750)
                     self.server.sendmail(self.email, [user['email']], message)
                     logger.info('MAIL successfully sent')
@@ -386,7 +385,7 @@ class Rest(Sender):
         """
         self.queue = []
     
-    def add(self, coin, explorer_url, user, address, txs):
+    def add(self, coin, user, address, txs):
         """
         Submit <address>'s transactions to notify queue only if user specified rest url
 
@@ -399,7 +398,7 @@ class Rest(Sender):
         if not user['rest_url']:
             return
 
-        super(Rest, self).add(coin, explorer_url, user, address, txs)
+        super(Rest, self).add(coin, user, address, txs)
 
     def build_message(self, coin, user, address, txs):
         """
@@ -427,7 +426,7 @@ class Rest(Sender):
         new_queue = []
         while self.queue:
             data = self.queue.pop()
-            coin, explorer_url, user, address, txs = data
+            coin, user, address, txs = data
             payload = self.build_message(coin, user, address, txs)
 
             try:

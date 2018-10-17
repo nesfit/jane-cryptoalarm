@@ -33,8 +33,7 @@ class Database():
         sql = '''
             SELECT
                 id,
-                name,
-                explorer_url
+                name
             FROM
                 ''' + self.config['tables']['coins'] + '''
             WHERE
@@ -53,8 +52,7 @@ class Database():
         sql = '''
             SELECT
                 id,
-                name,
-                explorer_url
+                name
             FROM
                 ''' + self.config['tables']['coins'] + '''
         '''

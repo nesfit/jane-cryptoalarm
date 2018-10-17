@@ -1,6 +1,6 @@
 .env
 cryptoalarm-app/python/config.json
-
+cryptoalarm-app/python/cryptoalarm/__pycache__/*
 volumes/*
 !volumes/storage
 
