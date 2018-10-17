@@ -21,7 +21,7 @@
         "read": 20
     },
     "notify_interval": 60,
-    "reload_interval": 3600,
+    "reload_interval": 90,
     "retry_interval_min": 5,
     "retry_interval_max": 3600,
     
@@ -37,9 +37,12 @@
     
     "notifier": {
         "server" : "http://<hostname>/",
+		"server_prefix_addr" : "/address/",
+		"server_prefix_block" : "/block/",
+		"server_prefix_tx" : "/tx/",		
         "notification_url" : "http://<hostname>/api-endpoint",
         "email_subject" : "[Cryptoalarm] Notification {name}",
-        "email_from" : "coinomon-alarm@cryptoalarm.tld",
+        "email_from" : "cryptoalarm@cryptoalarm.tld",
         "email_template" : "<h1>Cryptoalarm {name}</h1>\n<p>triggered for {coin} address {address}</p>\n<p>check following transactions</p>\n<p>\n{txs}\n</p>"
     }   
 }

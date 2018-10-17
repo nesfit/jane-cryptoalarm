@@ -309,15 +309,21 @@ class Mailer(Sender):
         if user['email_template']:
             template = user['email_template']
 
-        txs_links = []
-        #print(txs)
+        txs_links = []        
+        coin = str(coin).lower()
+        #print(coin)
+        #Sort tx according to timestamp
         txs = sorted(txs, key=lambda tx: tx[1])
-        #print(txs)
+        
         for block_number, block_id, tx in txs:
-            tx_url = self.config['notifier']['server'] + coin + '/tx/' + tx
-            txs_links.append('#{} <a href="{}">{}</a><br>'.format(block_number, tx_url, tx))
+            tx_url    = self.config['notifier']['server'] + coin + self.config['notifier']['server_prefix_tx'] + tx
+            #print(tx_url)
+            #print(block_number, block_id)
+            block_url = self.config['notifier']['server'] + coin + self.config['notifier']['server_prefix_block'] + str(block_number)
+            #print(block_url)
+            txs_links.append('#<a href="{}">{}</a> <a href="{}">{}</a><br>'.format(block_url, block_number, tx_url, tx))
 
-        address_url = self.config['notifier']['server'] + coin + '/address/' + address
+        address_url = self.config['notifier']['server'] + coin + self.config['notifier']['server_prefix_addr'] + address
         address_str = '<a href="{}">{}</a>'.format(address_url, address)
 
         return template.format(address=address_str, coin=coin, name=user['watchlist_name'], txs='\n'.join(txs_links))
