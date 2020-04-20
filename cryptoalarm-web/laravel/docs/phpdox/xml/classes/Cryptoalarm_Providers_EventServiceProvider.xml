@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Providers\EventServiceProvider" namespace="Cryptoalarm\Providers" name="EventServiceProvider" abstract="false" final="false" start="8" end="32">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers" file="EventServiceProvider.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers/EventServiceProvider.php" size="652" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="f06d55655d93a11420a9f3b2111d4978ad0ff732" relative="Providers/EventServiceProvider.php"/>
+  <extends full="Illuminate\Foundation\Support\Providers\EventServiceProvider" namespace="Illuminate\Foundation\Support\Providers" name="EventServiceProvider" unresolved="true"/>
+  <member name="listen" default="" type="array" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="The event listener mappings for the application."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="boot" start="26" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register any events for your application."/>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

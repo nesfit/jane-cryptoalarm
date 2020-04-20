@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Notification" namespace="Cryptoalarm" name="Notification" abstract="false" final="false" start="7" end="15">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app" file="Notification.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Notification.php" size="308" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="c2248fc66d949947a565f672c10ce3c7b295b2f2" relative="Notification.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="fillable" default="" type="array" visibility="public" static="false" line="9"/>
+  <method name="watchlist" start="11" end="14" abstract="false" final="false" static="false" visibility="public"/>
+</class>

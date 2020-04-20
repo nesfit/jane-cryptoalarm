@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Controllers\WatchlistController" namespace="Cryptoalarm\Http\Controllers" name="WatchlistController" abstract="false" final="false" start="13" end="115">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers" file="WatchlistController.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers/WatchlistController.php" size="3823" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="79586550a4f9b7e9036deb7851d2910c3878cdca" relative="Http/Controllers/WatchlistController.php"/>
+  <extends full="Cryptoalarm\Http\Controllers\Controller" namespace="Cryptoalarm\Http\Controllers" name="Controller"/>
+  <method name="rules" start="15" end="25" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="show" start="27" end="36" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="index" start="38" end="44" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="create" start="46" end="52" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="store" start="54" end="62" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <method name="edit" start="64" end="71" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="update" start="73" end="82" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="84" end="90" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="identify" start="92" end="102" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <method name="restCheck" start="104" end="114" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Cryptoalarm\Http\Controllers\Controller" namespace="Cryptoalarm\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

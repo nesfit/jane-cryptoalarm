@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Controllers\UserController" namespace="Cryptoalarm\Http\Controllers" name="UserController" abstract="false" final="false" start="7" end="25">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers" file="UserController.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers/UserController.php" size="587" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="ab6e9f4f9a06bb10441fa8e3b858b49f1482ec6f" relative="Http/Controllers/UserController.php"/>
+  <extends full="Cryptoalarm\Http\Controllers\Controller" namespace="Cryptoalarm\Http\Controllers" name="Controller"/>
+  <method name="edit" start="9" end="14" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="update" start="16" end="24" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="Illuminate\Http\Request" namespace="Illuminate\Http" name="Request"/>
+    </parameter>
+  </method>
+  <parent full="Cryptoalarm\Http\Controllers\Controller" namespace="Cryptoalarm\Http\Controllers" name="Controller">
+    <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" unresolved="true"/>
+    <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" unresolved="true"/>
+  </parent>
+</class>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Console\Commands\bitcointalk" namespace="Cryptoalarm\Console\Commands" name="bitcointalk" abstract="false" final="false" start="17" end="150">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Console/Commands" file="bitcointalk.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Console/Commands/bitcointalk.php" size="4991" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="04d6474d339e9520b864fbd40bc45b374a212dfb" relative="Console/Commands/bitcointalk.php"/>
+  <extends full="Illuminate\Console\Command" namespace="Illuminate\Console" name="Command" unresolved="true"/>
+  <member name="signature" default="'command:bitcointalk {selenium-standalone : Java JAR package of selenium standalone server} {port=4444}'" type="string" visibility="protected" static="false" line="24">
+    <docblock>
+      <description compact="The name and signature of the console command."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="description" default="'Crawle bitcointalk.org user profiles and save addresses'" type="string" visibility="protected" static="false" line="31">
+    <docblock>
+      <description compact="The console command description."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="matcher" visibility="private" static="false" line="32"/>
+  <member name="webdriver" visibility="private" static="false" line="33"/>
+  <member name="port" visibility="private" static="false" line="34"/>
+  <constant type="integer" name="USLEEP_INTERVAL" value="650000"/>
+  <constant type="string" name="PROFILE_URL" value="'https://bitcointalk.org/index.php?action=profile;u='"/>
+  <constant type="string" name="SOURCE" value="'bitcointalk'"/>
+  <method name="handle" start="44" end="85" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Execute the console command."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="loadProfile" start="87" end="97" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="load" start="99" end="115" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clean" start="117" end="120" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLastMemberId" start="122" end="127" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="startup" start="129" end="142" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="shutdown" start="144" end="148" abstract="false" final="false" static="false" visibility="private"/>
+</class>

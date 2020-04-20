@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Middleware\TrimStrings" namespace="Cryptoalarm\Http\Middleware" name="TrimStrings" abstract="false" final="false" start="7" end="18">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware" file="TrimStrings.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware/TrimStrings.php" size="366" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="df1c49b7a9b32df0f7928397e7502492c6fb47e1" relative="Http/Middleware/TrimStrings.php"/>
+  <extends full="Illuminate\Foundation\Http\Middleware\TrimStrings" namespace="Illuminate\Foundation\Http\Middleware" name="TrimStrings" unresolved="true"/>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The names of the attributes that should not be trimmed."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

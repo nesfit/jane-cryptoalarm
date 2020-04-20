@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Middleware\TrustProxies" namespace="Cryptoalarm\Http\Middleware" name="TrustProxies" abstract="false" final="false" start="8" end="29">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware" file="TrustProxies.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware/TrustProxies.php" size="734" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="72afc60cd41ca78243684d9e5eb90a50bc882ddf" relative="Http/Middleware/TrustProxies.php"/>
+  <extends full="Fideloper\Proxy\TrustProxies" namespace="Fideloper\Proxy" name="TrustProxies" unresolved="true"/>
+  <member name="proxies" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="The trusted proxies for this application."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="headers" default="" type="array" visibility="protected" static="false" line="22">
+    <docblock>
+      <description compact="The current proxy header mappings."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

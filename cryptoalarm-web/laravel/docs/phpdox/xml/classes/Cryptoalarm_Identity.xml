@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Identity" namespace="Cryptoalarm" name="Identity" abstract="false" final="false" start="11" end="31">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app" file="Identity.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Identity.php" size="822" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="a3fdf1cf31034f36421e8daa6bdbfd1566f1362e" relative="Identity.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="fillable" default="" type="array" visibility="protected" static="false" line="13"/>
+  <member name="timestamps" default="false" type="boolean" visibility="public" static="false" line="14"/>
+  <method name="saveItem" start="16" end="30" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+</class>

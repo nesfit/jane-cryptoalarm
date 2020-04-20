@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Exceptions\Handler" namespace="Cryptoalarm\Exceptions" name="Handler" abstract="false" final="false" start="8" end="53">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Exceptions" file="Handler.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Exceptions/Handler.php" size="1198" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="04d8155c35ed45ee4865d36bcfbadb8ea7bcc700" relative="Exceptions/Handler.php"/>
+  <extends full="Illuminate\Foundation\Exceptions\Handler" namespace="Illuminate\Foundation\Exceptions" name="Handler" unresolved="true"/>
+  <member name="dontReport" default="" type="array" visibility="protected" static="false" line="15">
+    <docblock>
+      <description compact="A list of the exception types that are not reported."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="dontFlash" default="" type="array" visibility="protected" static="false" line="24">
+    <docblock>
+      <description compact="A list of the inputs that are never flashed for validation exceptions."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="report" start="37" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Report or log an exception.">This is a great spot to send exceptions to Sentry, Bugsnag, etc.</description>
+      <param type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="object">
+        <type full="Cryptoalarm\Exceptions\void" namespace="Cryptoalarm\Exceptions" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+  <method name="render" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render an exception into an HTTP response."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$exception">
+        <type full="\Exception" namespace="" name="Exception"/>
+      </param>
+      <return type="object">
+        <type full="\Illuminate\Http\Response" namespace="\Illuminate\Http" name="Response"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="exception" byreference="false" type="object">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </method>
+</class>

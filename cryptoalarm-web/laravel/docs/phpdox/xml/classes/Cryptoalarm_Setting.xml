@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Setting" namespace="Cryptoalarm" name="Setting" abstract="false" final="false" start="7" end="12">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app" file="Setting.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Setting.php" size="220" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="499b3b0d04b5743f6118a26167650f3b6c0ea94b" relative="Setting.php"/>
+  <extends full="Illuminate\Database\Eloquent\Model" namespace="Illuminate\Database\Eloquent" name="Model" unresolved="true"/>
+  <member name="primaryKey" default="'key'" type="string" visibility="protected" static="false" line="9"/>
+  <member name="fillable" default="" type="array" visibility="protected" static="false" line="10"/>
+  <member name="timestamps" default="false" type="boolean" visibility="public" static="false" line="11"/>
+</class>

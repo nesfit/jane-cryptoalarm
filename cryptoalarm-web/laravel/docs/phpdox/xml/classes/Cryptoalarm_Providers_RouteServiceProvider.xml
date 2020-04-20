@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Providers\RouteServiceProvider" namespace="Cryptoalarm\Providers" name="RouteServiceProvider" abstract="false" final="false" start="8" end="73">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers" file="RouteServiceProvider.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers/RouteServiceProvider.php" size="1618" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="df271805adddf52bd1310569b108b8b9fc37fa6b" relative="Providers/RouteServiceProvider.php"/>
+  <extends full="Illuminate\Foundation\Support\Providers\RouteServiceProvider" namespace="Illuminate\Foundation\Support\Providers" name="RouteServiceProvider" unresolved="true"/>
+  <member name="namespace" default="'Cryptoalarm\Http\Controllers'" type="string" visibility="protected" static="false" line="17">
+    <docblock>
+      <description compact="This namespace is applied to your controller routes.">In addition, it is set as the URL generator's root namespace.</description>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="boot" start="24" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define your route model bindings, pattern filters, etc."/>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="map" start="36" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Define the routes for the application."/>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mapWebRoutes" start="52" end="57" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define the &quot;web&quot; routes for the application.">These routes all receive session state, CSRF protection, etc.</description>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="mapApiRoutes" start="66" end="72" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Define the &quot;api&quot; routes for the application.">These routes are typically stateless.</description>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

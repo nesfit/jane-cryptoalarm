@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Kernel" namespace="Cryptoalarm\Http" name="Kernel" abstract="false" final="false" start="7" end="61">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http" file="Kernel.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Kernel.php" size="2142" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="875341a1eacb8f50c00c655be2d4cf60bd950aba" relative="Http/Kernel.php"/>
+  <extends full="Illuminate\Foundation\Http\Kernel" namespace="Illuminate\Foundation\Http" name="Kernel" unresolved="true"/>
+  <member name="middleware" default="" type="array" visibility="protected" static="false" line="16">
+    <docblock>
+      <description compact="The application's global HTTP middleware stack.">These middleware are run during every request to your application.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="middlewareGroups" default="" type="array" visibility="protected" static="false" line="29">
+    <docblock>
+      <description compact="The application's route middleware groups."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="routeMiddleware" default="" type="array" visibility="protected" static="false" line="53">
+    <docblock>
+      <description compact="The application's route middleware.">These middleware may be assigned to groups or used individually.</description>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

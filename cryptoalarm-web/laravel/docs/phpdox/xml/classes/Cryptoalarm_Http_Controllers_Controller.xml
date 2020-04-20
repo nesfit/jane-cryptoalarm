@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Controllers\Controller" namespace="Cryptoalarm\Http\Controllers" name="Controller" abstract="false" final="false" start="10" end="13">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers" file="Controller.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Controllers/Controller.php" size="382" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="92f139488581d0ee4ac64712102c90eebfab5e71" relative="Http/Controllers/Controller.php"/>
+  <extends full="Illuminate\Routing\Controller" namespace="Illuminate\Routing" name="Controller" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Auth\Access\AuthorizesRequests" namespace="Illuminate\Foundation\Auth\Access" name="AuthorizesRequests" start="12" end="12" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Bus\DispatchesJobs" namespace="Illuminate\Foundation\Bus" name="DispatchesJobs" start="12" end="12" unresolved="true"/>
+  <uses full="Illuminate\Foundation\Validation\ValidatesRequests" namespace="Illuminate\Foundation\Validation" name="ValidatesRequests" start="12" end="12" unresolved="true"/>
+  <extenders>
+    <extender full="Cryptoalarm\Http\Controllers\Auth\ForgotPasswordController" namespace="Cryptoalarm\Http\Controllers\Auth" name="ForgotPasswordController"/>
+    <extender full="Cryptoalarm\Http\Controllers\Auth\LoginController" namespace="Cryptoalarm\Http\Controllers\Auth" name="LoginController"/>
+    <extender full="Cryptoalarm\Http\Controllers\Auth\RegisterController" namespace="Cryptoalarm\Http\Controllers\Auth" name="RegisterController"/>
+    <extender full="Cryptoalarm\Http\Controllers\Auth\ResetPasswordController" namespace="Cryptoalarm\Http\Controllers\Auth" name="ResetPasswordController"/>
+    <extender full="Cryptoalarm\Http\Controllers\DashboardController" namespace="Cryptoalarm\Http\Controllers" name="DashboardController"/>
+    <extender full="Cryptoalarm\Http\Controllers\UserController" namespace="Cryptoalarm\Http\Controllers" name="UserController"/>
+    <extender full="Cryptoalarm\Http\Controllers\WatchlistController" namespace="Cryptoalarm\Http\Controllers" name="WatchlistController"/>
+  </extenders>
+</class>

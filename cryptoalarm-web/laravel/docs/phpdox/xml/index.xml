@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app">
+  <namespace name="Cryptoalarm">
+    <class name="Address" src="Address.php" xml="classes/Cryptoalarm_Address.xml"/>
+    <class name="AddressMatcher" src="AddressMatcher.php" xml="classes/Cryptoalarm_AddressMatcher.xml"/>
+    <class name="Coin" src="Coin.php" xml="classes/Cryptoalarm_Coin.xml"/>
+    <class name="Identity" src="Identity.php" xml="classes/Cryptoalarm_Identity.xml"/>
+    <class name="Notification" src="Notification.php" xml="classes/Cryptoalarm_Notification.xml"/>
+    <class name="Setting" src="Setting.php" xml="classes/Cryptoalarm_Setting.xml"/>
+    <class name="User" src="User.php" xml="classes/Cryptoalarm_User.xml"/>
+    <class name="Watchlist" src="Watchlist.php" xml="classes/Cryptoalarm_Watchlist.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Console\Commands">
+    <class name="bitcointalk" src="Console/Commands/bitcointalk.php" xml="classes/Cryptoalarm_Console_Commands_bitcointalk.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Console">
+    <class name="Kernel" src="Console/Kernel.php" xml="classes/Cryptoalarm_Console_Kernel.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Exceptions">
+    <class name="Handler" src="Exceptions/Handler.php" xml="classes/Cryptoalarm_Exceptions_Handler.xml"/>
+    <class name="InvalidEnumException" src="Exceptions/InvalidEnumException.php" xml="classes/Cryptoalarm_Exceptions_InvalidEnumException.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Http\Controllers\Auth">
+    <class name="ForgotPasswordController" src="Http/Controllers/Auth/ForgotPasswordController.php" xml="classes/Cryptoalarm_Http_Controllers_Auth_ForgotPasswordController.xml"/>
+    <class name="LoginController" src="Http/Controllers/Auth/LoginController.php" xml="classes/Cryptoalarm_Http_Controllers_Auth_LoginController.xml"/>
+    <class name="RegisterController" src="Http/Controllers/Auth/RegisterController.php" xml="classes/Cryptoalarm_Http_Controllers_Auth_RegisterController.xml"/>
+    <class name="ResetPasswordController" src="Http/Controllers/Auth/ResetPasswordController.php" xml="classes/Cryptoalarm_Http_Controllers_Auth_ResetPasswordController.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Http\Controllers">
+    <class name="Controller" src="Http/Controllers/Controller.php" xml="classes/Cryptoalarm_Http_Controllers_Controller.xml"/>
+    <class name="DashboardController" src="Http/Controllers/DashboardController.php" xml="classes/Cryptoalarm_Http_Controllers_DashboardController.xml"/>
+    <class name="UserController" src="Http/Controllers/UserController.php" xml="classes/Cryptoalarm_Http_Controllers_UserController.xml"/>
+    <class name="WatchlistController" src="Http/Controllers/WatchlistController.php" xml="classes/Cryptoalarm_Http_Controllers_WatchlistController.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Http">
+    <class name="Kernel" src="Http/Kernel.php" xml="classes/Cryptoalarm_Http_Kernel.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Http\Middleware">
+    <class name="EncryptCookies" src="Http/Middleware/EncryptCookies.php" xml="classes/Cryptoalarm_Http_Middleware_EncryptCookies.xml"/>
+    <class name="RedirectIfAuthenticated" src="Http/Middleware/RedirectIfAuthenticated.php" xml="classes/Cryptoalarm_Http_Middleware_RedirectIfAuthenticated.xml"/>
+    <class name="TrimStrings" src="Http/Middleware/TrimStrings.php" xml="classes/Cryptoalarm_Http_Middleware_TrimStrings.xml"/>
+    <class name="TrustProxies" src="Http/Middleware/TrustProxies.php" xml="classes/Cryptoalarm_Http_Middleware_TrustProxies.xml"/>
+    <class name="VerifyCsrfToken" src="Http/Middleware/VerifyCsrfToken.php" xml="classes/Cryptoalarm_Http_Middleware_VerifyCsrfToken.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Providers">
+    <class name="AppServiceProvider" src="Providers/AppServiceProvider.php" xml="classes/Cryptoalarm_Providers_AppServiceProvider.xml"/>
+    <class name="AuthServiceProvider" src="Providers/AuthServiceProvider.php" xml="classes/Cryptoalarm_Providers_AuthServiceProvider.xml"/>
+    <class name="BroadcastServiceProvider" src="Providers/BroadcastServiceProvider.php" xml="classes/Cryptoalarm_Providers_BroadcastServiceProvider.xml"/>
+    <class name="EventServiceProvider" src="Providers/EventServiceProvider.php" xml="classes/Cryptoalarm_Providers_EventServiceProvider.xml"/>
+    <class name="RouteServiceProvider" src="Providers/RouteServiceProvider.php" xml="classes/Cryptoalarm_Providers_RouteServiceProvider.xml"/>
+  </namespace>
+  <namespace name="Cryptoalarm\Traits">
+    <trait name="Enums" src="Traits/Enums.php" xml="traits/Cryptoalarm_Traits_Enums.xml"/>
+  </namespace>
+  <namespace name="">
+    <class name="Exception" xml="classes/Exception.xml"/>
+  </namespace>
+</index>

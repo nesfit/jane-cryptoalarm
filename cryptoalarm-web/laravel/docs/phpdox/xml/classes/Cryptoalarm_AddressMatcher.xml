@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\AddressMatcher" namespace="Cryptoalarm" name="AddressMatcher" abstract="false" final="false" start="5" end="52">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app" file="AddressMatcher.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/AddressMatcher.php" size="1532" time="2019-09-25T17:20:35+00:00" unixtime="1569432035" sha1="d459065c053008bfec886dac72c48962d69f78d2" relative="AddressMatcher.php"/>
+  <member name="coins" default="" type="array" visibility="public" static="false" line="6"/>
+  <method name="identify_address" start="16" end="29" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="address" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="match_addresses" start="31" end="50" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+</class>

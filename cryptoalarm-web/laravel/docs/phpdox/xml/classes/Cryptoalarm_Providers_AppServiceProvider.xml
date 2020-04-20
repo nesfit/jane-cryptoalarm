@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Providers\AppServiceProvider" namespace="Cryptoalarm\Providers" name="AppServiceProvider" abstract="false" final="false" start="7" end="28">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers" file="AppServiceProvider.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Providers/AppServiceProvider.php" size="439" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="1394128510820e7d2af85a8d92e5f7321d32a14f" relative="Providers/AppServiceProvider.php"/>
+  <extends full="Illuminate\Support\ServiceProvider" namespace="Illuminate\Support" name="ServiceProvider" unresolved="true"/>
+  <method name="boot" start="14" end="17" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Bootstrap any application services."/>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="register" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register any application services."/>
+      <return type="object">
+        <type full="Cryptoalarm\Providers\void" namespace="Cryptoalarm\Providers" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

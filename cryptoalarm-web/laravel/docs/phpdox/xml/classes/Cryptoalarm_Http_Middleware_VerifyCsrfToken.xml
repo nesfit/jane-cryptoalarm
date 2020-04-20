@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Middleware\VerifyCsrfToken" namespace="Cryptoalarm\Http\Middleware" name="VerifyCsrfToken" abstract="false" final="false" start="7" end="17">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware" file="VerifyCsrfToken.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware/VerifyCsrfToken.php" size="332" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="eb56a7d97c5478b668c1d60b0dad836749186a58" relative="Http/Middleware/VerifyCsrfToken.php"/>
+  <extends full="Illuminate\Foundation\Http\Middleware\VerifyCsrfToken" namespace="Illuminate\Foundation\Http\Middleware" name="VerifyCsrfToken" unresolved="true"/>
+  <member name="except" default="" type="array" visibility="protected" static="false" line="14">
+    <docblock>
+      <description compact="The URIs that should be excluded from CSRF verification."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>

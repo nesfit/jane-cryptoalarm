@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trait xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Traits\Enums" namespace="Cryptoalarm\Traits" name="Enums" abstract="false" final="false" start="8" end="125">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Traits" file="Enums.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Traits/Enums.php" size="3043" time="2019-09-25T17:20:37+00:00" unixtime="1569432037" sha1="2fc4de16e2477a8a1727fa99ff4e3869a69ca9cf" relative="Traits/Enums.php"/>
+  <method name="getEnum" start="16" end="27" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Enum property getter"/>
+      <param type="string" variable="$field"/>
+      <return type="object">
+        <type full="Cryptoalarm\Traits\mixed|false" namespace="Cryptoalarm\Traits" name="mixed|false"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+  </method>
+  <method name="setAttribute" start="38" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check for the presence of a property that starts     with enum for the provided attribute"/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Cryptoalarm\Traits\$this" namespace="Cryptoalarm\Traits" name="$this"/>
+      </return>
+      <throws type="object">
+        <type full="Cryptoalarm\Exceptions\InvalidEnumException" namespace="Cryptoalarm\Exceptions" name="InvalidEnumException"/>
+      </throws>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEnumProperty" start="59" end="62" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the expected enum property"/>
+      <param type="string" variable="$field"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+  </method>
+  <method name="getKeyedEnum" start="71" end="74" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the enum value by key"/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$key"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasEnumProperty" start="82" end="87" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Is an enum property defined for the provided field"/>
+      <param type="string" variable="$field"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+  </method>
+  <method name="isKeyedEnum" start="96" end="99" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Is the provided value a key in the enum"/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$key"/>
+      <return type="object">
+        <type full="Cryptoalarm\Traits\bool" namespace="Cryptoalarm\Traits" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isValidEnum" start="108" end="112" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Is the value a valid enum in any way"/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Cryptoalarm\Traits\bool" namespace="Cryptoalarm\Traits" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isValueEnum" start="121" end="124" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Is the provided value in the enum"/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$value"/>
+      <return type="object">
+        <type full="Cryptoalarm\Traits\bool" namespace="Cryptoalarm\Traits" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="string"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <users>
+    <class full="Cryptoalarm\Watchlist" namespace="Cryptoalarm" name="Watchlist"/>
+  </users>
+</trait>

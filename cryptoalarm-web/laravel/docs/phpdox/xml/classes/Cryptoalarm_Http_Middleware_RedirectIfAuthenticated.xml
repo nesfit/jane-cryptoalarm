@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cryptoalarm\Http\Middleware\RedirectIfAuthenticated" namespace="Cryptoalarm\Http\Middleware" name="RedirectIfAuthenticated" abstract="false" final="false" start="8" end="26">
+  <file path="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware" file="RedirectIfAuthenticated.php" realpath="E:/GitHub/jane-cryptoalarm/cryptoalarm-web/laravel/app/Http/Middleware/RedirectIfAuthenticated.php" size="557" time="2019-09-25T17:20:36+00:00" unixtime="1569432036" sha1="2042aaf65753c253d93780996ad557fc53cfebf4" relative="Http/Middleware/RedirectIfAuthenticated.php"/>
+  <method name="handle" start="18" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle an incoming request."/>
+      <param type="object" variable="$request">
+        <type full="\Illuminate\Http\Request" namespace="\Illuminate\Http" name="Request"/>
+      </param>
+      <param type="object" variable="$next">
+        <type full="\Closure" namespace="" name="Closure"/>
+      </param>
+      <param type="object" variable="$guard">
+        <type full="Cryptoalarm\Http\Middleware\string|null" namespace="Cryptoalarm\Http\Middleware" name="string|null"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <parameter name="next" byreference="false" type="object">
+      <type full="Closure" namespace="" name="Closure"/>
+    </parameter>
+    <parameter name="guard" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+</class>
