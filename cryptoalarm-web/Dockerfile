@@ -29,15 +29,15 @@ RUN apt-get update -yqq && \
 
 
   # Install the PHP pdo_mysql extention
-RUN docker-php-ext-install pdo_mysql \
+RUN docker-php-ext-install pdo_mysql 
   # Install the PHP pdo_pgsql extention
-  && docker-php-ext-install pdo_pgsql \
+RUN docker-php-ext-install pdo_pgsql 
   # Install the PHP gd library
-  && docker-php-ext-configure gd \
-    --enable-gd-native-ttf \
-    --with-jpeg-dir=/usr/lib \
-    --with-freetype-dir=/usr/include/freetype2 && \
-  docker-php-ext-install gd
+#  && docker-php-ext-configure gd \
+#    --enable-gd-native-ttf \
+#    --with-jpeg-dir=/usr/lib \
+#    --with-freetype-dir=/usr/include/freetype2 && \
+#  docker-php-ext-install gd
 
 
 RUN docker-php-ext-install zip
@@ -56,7 +56,7 @@ COPY ./config/php.ini /usr/local/etc/php/
 
 # INSTALL NODEJS NPM BOWER GULP 
 RUN apt-get install -y gnupg 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs && \
     npm install -g npm && \
     npm install -g bower && \
@@ -68,10 +68,22 @@ WORKDIR /var/www
 RUN composer install && composer update
 RUN npm install
 RUN npm build
-RUN npm run dev
+RUN npm run prod
 RUN cp .env.example .env
 RUN php artisan key:generate
 RUN php artisan config:cache
 RUN php artisan view:clear
 #RUN php artisan migrate
 #RUN php artisan db:seed
+
+WORKDIR /var/www/storage
+RUN mkdir -p app/public/files
+RUN mkdir -p framework/sessions
+RUN mkdir -p framework/cache/data
+RUN mkdir -p framework/views
+RUN mkdir -p logs
+
+WORKDIR /var/www
+RUN chgrp -R www-data storage bootstrap/cache
+RUN chmod -R ug+rwx storage bootstrap/cache
+EXPOSE 9000

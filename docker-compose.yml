@@ -21,12 +21,13 @@ services:
     container_name: cryptoalarm-web
     restart: always
     working_dir: /var/www
+    expose:
+      - 9000
     depends_on:
       - "postgres"
     volumes:
       - web_data:/var/www
-      - storage_data:/var/www/storage
-      - bootstrap_data:/var/www/bootstrap/cache
+      - ./cryptoalarm-web/config/.env:/var/www/.env
 
   nginx:
     image: nginx:latest
@@ -40,11 +41,11 @@ services:
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/vhost.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 80:80
-      - 443:443
+      - ${HTTP_PORT}:80
+      - ${HTTPS_PORT}:443
 
   postgres:
-    image: postgres:latest
+    image: postgres:10
     container_name: cryptoalarm-postgres
     restart: always
     environment:
@@ -52,7 +53,7 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       POSTGRES_DB: "${POSTGRES_DB}"
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT}:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -63,7 +64,7 @@ services:
     depends_on:
       - "postgres"
     ports:
-      - 8080:8080
+      - ${ADMINER_PORT}:8080
 
 
 networks:
@@ -73,21 +74,21 @@ networks:
 
 volumes:
   postgres_data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/postgres"
+#    driver: local-persist
+#    driver_opts:
+#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/postgres"
 
   web_data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/web"
+#    driver: local-persist
+#    driver_opts:
+#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/web"
 
-  storage_data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/storage"
+#  storage_data:
+#    driver: local-persist
+#    driver_opts:
+#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/storage"
 
-  bootstrap_data:
-    driver: local-persist
-    driver_opts:
-      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/bootstrap"
+#  bootstrap_data:
+#    driver: local-persist
+#    driver_opts:
+#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/bootstrap"

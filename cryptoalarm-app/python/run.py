@@ -20,7 +20,7 @@ with open('config.json') as fd:
 
 config['coins'] = [
     coin.BTC,
-    coin.BCH,
+#    coin.BCH,
     coin.LTC,
     coin.DASH,
     coin.ZEC,
