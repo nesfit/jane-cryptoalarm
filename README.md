@@ -26,7 +26,7 @@ token systems built on top of Ethereum smart contracts. Zcash allows only monito
 ### Technologies
 Cryptoalarm queries official cryptocurrency client (such as Bitcoin Core available as [another JANE module](https://github.com/nesfit/jane-cryptoclients/)) via RPC. 
 
-Cryptoalarm parsing script written in Pyhton and web application written in PHP with the help of the Laravel framework:
+Cryptoalarm monitoring script written in Pyhton and web application written in PHP with the help of the Laravel framework:
 
 * Python 3
 * requests v2.20.0
@@ -36,7 +36,7 @@ Cryptoalarm parsing script written in Pyhton and web application written in PHP 
 * Laravel 5.8
 
 ## Installation guideline
-Cryptoalarm [parsing script](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-app/python) and [web application](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-web/laravel) source codes are available in separate folders. Deployment of JANE Cryptoalarm module can be cloned via [Git repository](https://github.com/nesfit/jane-cryptoalarm.git).
+Cryptoalarm [monitoring script](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-app/python) and [web application](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-web/laravel) source codes are available in separate folders. Deployment of JANE Cryptoalarm module can be cloned via [Git repository](https://github.com/nesfit/jane-cryptoalarm.git).
 
 ### Prerequisites
 All JANE modules run as containerized microservices. Therefore, the production environment is the same for all of them. JANE uses Docker for containerization. We expect that JANE containers can operate on any containerization solution compatible with Docker (such as Podman).
@@ -76,7 +76,7 @@ curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/s
 ```
 
 ### Deployment
-Cryptoalarm consists of four containers - Laravel 5.8 web application, nginx 1.10 HTTP server, Python parsing script, and PostgreSQL database (and optionally adminer for database debugging). In order to deploy Cryptoalarm on your server:
+Cryptoalarm consists of four containers - Laravel 5.8 web application, nginx 1.10 HTTP server, Python monitoring script, and PostgreSQL database (and optionally adminer for database debugging). In order to deploy Cryptoalarm on your server:
 
 1. clone Cryptoalarm repository `git clone https://github.com/nesfit/jane-cryptoalarm.git`
 
@@ -104,10 +104,10 @@ DB_DATABASE=<postgres_db>
 DB_USERNAME=<postgres_username>
 DB_PASSWORD=<postgres_password>
 ```
-6. copy parsing script environmental variables file 
+6. copy monitoring script environmental variables file 
 `cp ./cryptoalarm-app/python/config.json.example ./cryptoalarm-app/python/config.json`
 
-7. change parameters of parsing script, which includes PostgreSQL database connection, cryptocurrency clients RPC URLs, mailing server SMTP credentials, and customize notification emails:
+7. change parameters of monitoring script, which includes PostgreSQL database connection, cryptocurrency clients RPC URLs, mailing server SMTP credentials, and customize notification emails:
 ```
     "db": "dbname=<database> user=<username> host=<hostname> password=<secret>",
     "coins": [],
@@ -139,25 +139,43 @@ DB_PASSWORD=<postgres_password>
 llowing transactions</p>\n<p>\n{txs}\n</p>"
 ```
 
-8. pull [parsing script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
+8. pull [monitoring script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
 
-9. optionally build parsing script and web application containers locally `docker-compose build demix-app`
+9. optionally build monitoring script and web application containers locally `docker-compose build demix-app`
 
 10. run containers `docker-compose up -d`
 
 ## User manual
 Besides console application for address monitoring, we have developed the web application for watchlist management. All these components form the Cryptoalarm, which allows users to set up custom watchlists with a filter for the specific involvement of addresses inside transactions. Cryptoalarm can raise alarms in case of a watched address detection in a transaction. To let users know about such events, alarms can be sent as notifications. Currently, the supported notification types are emails and REST calls.
 
-### User stories
-Cryptoalarm is a combination of parsing script (which checks occurance of cryptocurrency address within the blockchain and sends notification) and web application that offers user control of the system. Since alarms (in terminology of web all watchlists) have ownership by belonging to some user, the system itself support credentials-based access and user control. It consists of the following views:
+The purpose of Python monitoring application is to scan blockchains of cryptocurrencies in order to detect new blocks, to process transactions and to send notifications when monitored address is involved in any transaction. The scanning of each cryptocurrency’s blockchain needs to be done in parallel. This is due to the different block times of each cryptocurrency. Those intervals can overlap or new blocks can be generated in approximately at the same time. Transaction processing of one cryptocurrency could become delayed as it would wait until blocks of all other cryptocurrencies were processed in case of serial processing. Also, transaction processing for each cryptocurrency can take significantly different amounts of time. This is caused by each cryptocurrency storing distinct types of information about inputs of transaction. Ethereum can used as an example. Only one RPC call is required to obtain information about transaction inputs. On the other hand, transaction in Bitcoin (and its derivates) requires 1 + 𝑙𝑒𝑛(𝑖𝑛𝑝𝑢𝑡𝑠) RPC calls. This is caused by the process of
+identifying senders’ address. 
 
+The main purpose of web application is watchlist management.
+
+### User stories
+Cryptoalarm is a combination of monitoring script (which checks occurance of cryptocurrency address within the blockchain and sends notification) and web application that offers user control of the system. Since alarms (in terminology of web all watchlists) have ownership by belonging to some user, the system itself support credentials-based access and user control. It consists of the following views:
+
+* _Dashboard_ - Dashboard consolidates all notifications from all watchlists in a unified timeline.
 * _Watchlists_ - This view offers manipulation with watchlists, including creation, editing, and deleting.
 * _Notifications_ - Notifications display all alarms belonging to particular cryptocurrency addresses that were raised and recorded by the system. 
-* _Dashboard_ - Dashboard consolidates all notifications from all watchlists in a unified timeline.
 * _Login_ - This page is a landing site for unauthorized access through which the user provides session-based credentials.
 * _Registration_ - The system is opened so that anyone can freely create an account and set up own alarms.
 
 ### Operation
+Web application is designed to have multiple screens. The first screen is _Dashboard_ which is designed to be a user’s entry point into the application. It contains a list of notifications about any addresses that user specified watchlist on. This list shows watchlist
+name, transaction hash (linking to the blockchain explorer) and notification timestamp.
+
+![dashboard](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/dashboard.png)
+
+Another screen is a _Watchlist_. The _Watchlist_ shows all notifications created in according to rules specified in given watchlist. Also, there is a list of identities that match watchlist’s address. Subsequently, there is an overview of rules defined for the given watchlist as cryptocurrency, involvement type (either as input, output or both) and notification type (email, REST or both). Also, there is a preview of a template used to create email notifications. The screen for creating and editing watchlist offers a form to fill all required information.
+
+![watchlist](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/watchlist.png)
+![createedit](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/createupdate.png)
+
+_Notifications_ for a given cryptocurrency address are only subset of all notifications focused on one particular address. 
+
+![notifications](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/watchlists.png)
 
 
 ### Testing
@@ -179,13 +197,13 @@ Second phase consists of generating notifications for transactions matching watc
 The programmer's documentation for Cryptoalarm is autogenerated with the help of phpDox and pydoc. This documentation is available statically in `docs` [folder](https://github.com/nesfit/jane-cryptoalarm/tree/master/demixer/docs). Moreover, for your convenience, it is also available online through JANE's [landing page](https://github.com/nesfit/jane-splashscreen/):
 
 * [for web application](https://jane.nesad.fit.vutbr.cz/docs/cryptoalarm/web/index.xhtml)
-* [for parsing script](https://jane.nesad.fit.vutbr.cz/docs/cryptoalarm/app/cryptoalarm.html)
+* [for monitoring script](https://jane.nesad.fit.vutbr.cz/docs/cryptoalarm/app/cryptoalarm.html)
 
 ### Class Diagram
-Class diagram corresponding to Python parsing script of final application:
+Class diagram corresponding to Python monitoring script of final application:
 
 ![Class diagram](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/cd.png)
 
-Both parsing script and web application synchronizes themselves via PostgreSQL database. Here is the Entity reliationship diagram of database scheme:
+Both monitoring script and web application synchronizes themselves via PostgreSQL database. Here is the Entity reliationship diagram of database scheme:
 
 ![ER](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/er.png)
