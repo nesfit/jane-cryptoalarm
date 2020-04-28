@@ -3,7 +3,7 @@
 Cryptocurrencies are becoming popular and the demand for monitoring transactions inside them increases alongside with it. Cryptoalarm
 is designed for monitoring transactions involving specific addresses in order to raise alarms. Cryptoalarm scans blockchains of cryptocurrencies such as Bitcoin, Bitcoin Cash, Litecoin, Zcash, Dash, Ethereum and raises alarms about address activities in real-time.
 
-![Demo]()
+![Demo](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/demoalarm.gif)
 
 ### JANE Framework
 This application is one of the modules of the JANE platform, which offers various mission-specific tools intended for digital forensics of computer networks. JANE follows microservice architecture and offers few containerized modules such as:
@@ -149,6 +149,13 @@ llowing transactions</p>\n<p>\n{txs}\n</p>"
 Besides console application for address monitoring, we have developed the web application for watchlist management. All these components form the Cryptoalarm, which allows users to set up custom watchlists with a filter for the specific involvement of addresses inside transactions. Cryptoalarm can raise alarms in case of a watched address detection in a transaction. To let users know about such events, alarms can be sent as notifications. Currently, the supported notification types are emails and REST calls.
 
 ### User stories
+Cryptoalarm is a combination of parsing script (which checks occurance of cryptocurrency address within the blockchain and sends notification) and web application that offers user control of the system. Since alarms (in terminology of web all watchlists) have ownership by belonging to some user, the system itself support credentials-based access and user control. It consists of the following views:
+
+* _Watchlists_ - This view offers manipulation with watchlists, including creation, editing, and deleting.
+* _Notifications_ - Notifications display all alarms belonging to particular cryptocurrency addresses that were raised and recorded by the system. 
+* _Dashboard_ - Dashboard consolidates all notifications from all watchlists in a unified timeline.
+* _Login_ - This page is a landing site for unauthorized access through which the user provides session-based credentials.
+* _Registration_ - The system is opened so that anyone can freely create an account and set up own alarms.
 
 ### Operation
 
