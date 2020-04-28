@@ -50,6 +50,9 @@ Cryptoalarm monitoring script written in Pyhton and web application written in P
 * Laravel 5.8
 
 ## Installation guideline
+This section explains reader how to successfully install DeMixer on own infrastructure.
+
+### Install
 Cryptoalarm [monitoring script](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-app/python) and [web application](https://github.com/nesfit/jane-cryptoalarm/tree/master/cryptoalarm-web/laravel) source codes are available in separate folders. Deployment of JANE Cryptoalarm module can be cloned via [Git repository](https://github.com/nesfit/jane-cryptoalarm.git).
 
 ### Prerequisites
