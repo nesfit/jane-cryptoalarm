@@ -18,7 +18,7 @@ This application is one of the modules of the JANE platform, which offers variou
 JANE and its modules are outcomes of the [TARZAN project](https://www.fit.vut.cz/research/project/1063/.en) supported by the [Ministry of the Interior of the Czech Republic](https://www.mvcr.cz). Cryptoalarm was developed in the frame of the [master thesis of Lukáš Vokráčko](https://www.vutbr.cz/en/students/final-thesis/detail/114872?zp_id=114872) supervised by [Vladimír Veselý](https://www.fit.vut.cz/person/veselyv/) in 2018.
 
 ### Goal
-Address monitoring in transactions is the main goal for this project. This type of monitoring can be used by governments, banking institutions or law enforcement agencies to track movements of funds on problematic addresses. Ransomware or malware crypto miner can be used as the examples of these addresses.
+Address monitoring in transactions is the main goal for this module. This type of monitoring can be used by governments, banking institutions or law enforcement agencies to track movements of funds on problematic addresses. Ransomware or malware crypto miner can be used as the examples of these addresses.
 
 Cryptoalarm specializes in systematic transaction monitoring with the focus on extensibility with new cryptocurrencies. Currently, Cryptoalarm supports Bitcoin, Bitcoin Cash, Litecoin, Dash, Zcash and Ethereum. Also, it supports transfers inside ERC20
 token systems built on top of Ethereum smart contracts. Zcash allows only monitoring of transaction with transparent addresses (t-addresses). Z-addresses are protected by zero-knowledge proofs, specifically zk-SNARKs.
