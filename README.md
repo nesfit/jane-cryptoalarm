@@ -94,9 +94,9 @@ HTTP_PORT=<public http port>
 HTTPS_PORT=<public https port>
 ```
 4. copy web application environmental variables file 
-`cp ./cryptoalarm-web/laravel/.env.example ./cryptoalarm-web/laravel/.env`
+`cp ./cryptoalarm-web/config/.env.example ./cryptoalarm-web/config/.env`
 
-5. specify in `./cryptoalarm-web/laravel/.env` following parameters:
+5. specify in `./cryptoalarm-web/config/.env` following parameters:
 ```
 DB_HOST=<postgres_host>
 DB_PORT=5432
@@ -104,11 +104,46 @@ DB_DATABASE=<postgres_db>
 DB_USERNAME=<postgres_username>
 DB_PASSWORD=<postgres_password>
 ```
-6. pull [parsing script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
+6. copy parsing script environmental variables file 
+`cp ./cryptoalarm-app/python/config.json.example ./cryptoalarm-app/python/config.json`
 
-7. optionally build parsing script and web application containers locally `docker-compose build demix-app`
+7. change parameters of parsing script, which includes PostgreSQL database connection, cryptocurrency clients RPC URLs, mailing server SMTP credentials, and customize notification emails:
+```
+    "db": "dbname=<database> user=<username> host=<hostname> password=<secret>",
+    "coins": [],
+    "urls": {
+        "BTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "LTC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "DASH":"http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "BCH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "ZEC": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>",
+        "ETH": "http://<rpcuser>:<rpcpass>@<hostname/IP>:<rpcport>"
+    },
+    "smtp": {
+        "server": "<smtpserver>",
+        "ssl" : "tls|starttls|none",
+        "port": <smtpport>,
+        "username": "<smtpusername>",
+        "password": "<smtppassword>"
+    },
+    ...
+    "notifier": {
+        "server" : "http://<hostname>/",
+                "server_prefix_addr" : "/address/",
+                "server_prefix_block" : "/block/",
+                "server_prefix_tx" : "/tx/",
+        "notification_url" : "http://<hostname>/api-endpoint",
+        "email_subject" : "[Cryptoalarm] Notification {name}",
+        "email_from" : "cryptoalarm@cryptoalarm.tld",
+        "email_template" : "<h1>Cryptoalarm {name}</h1>\n<p>triggered for {coin} address {address}</p>\n<p>check fo
+llowing transactions</p>\n<p>\n{txs}\n</p>"
+```
 
-8. run containers `docker-compose up -d`
+8. pull [parsing script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
+
+9. optionally build parsing script and web application containers locally `docker-compose build demix-app`
+
+10. run containers `docker-compose up -d`
 
 ## User manual
 Besides console application for address monitoring, we have developed the web application for watchlist management. All these components form the Cryptoalarm, which allows users to set up custom watchlists with a filter for the specific involvement of addresses inside transactions. Cryptoalarm can raise alarms in case of a watched address detection in a transaction. To let users know about such events, alarms can be sent as notifications. Currently, the supported notification types are emails and REST calls.
