@@ -5,6 +5,20 @@ is designed for monitoring transactions involving specific addresses in order to
 
 ![Demo](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/demoalarm.gif)
 
+Requirement for Cryptoalarm was to create an application that allows transac-tions monitoring in multiple cryptocurrencies.Following requirements were specified for an application designated to trans-action monitoring:
+* ability  to  monitor  transactions  in  the  wide  spectrum  of  cryptocurrenciesindependently;
+* transaction processing in a real-time;
+* offer scalability for further extension with new cryptocurrencies;
+* process transactions in blocks of the main chain when chain split is detected.
+
+Following  requirements  were  specified  for  a  web  application  designated  towatchlist management:
+* multi-user watchlist management;
+* address and cryptocurrency specification;
+* input/output involvement selection;
+* notification type selection;
+* notification destination;
+* notification email customization.
+
 ### JANE Framework
 This application is one of the modules of the JANE platform, which offers various mission-specific tools intended for digital forensics of computer networks. JANE follows microservice architecture and offers few containerized modules such as:
 
