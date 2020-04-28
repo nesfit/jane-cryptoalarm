@@ -221,6 +221,7 @@ Class diagram corresponding to Python monitoring script of final application:
 
 ![Class diagram](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/cd.png)
 
+### Entity-Relationship Diagram
 Both monitoring script and web application synchronizes themselves via PostgreSQL database. Here is the Entity reliationship diagram of database scheme:
 
 ![ER](https://raw.githubusercontent.com/nesfit/jane-cryptoalarm/master/cryptoalarm-web/laravel/docs/er.png)
