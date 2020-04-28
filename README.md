@@ -158,7 +158,7 @@ llowing transactions</p>\n<p>\n{txs}\n</p>"
 
 8. pull [monitoring script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
 
-9. optionally build monitoring script and web application containers locally `docker-compose build demix-app`
+9. optionally build monitoring script and web application containers locally `docker-compose build`
 
 10. run containers `docker-compose up -d`
 
