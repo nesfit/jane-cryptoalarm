@@ -82,29 +82,31 @@ Cryptoalarm consists of four containers - Laravel 5.8 web application, nginx 1.1
 
 2. copy container environmental variables file `cp .env.example .env`
 
-3. specify in `.env` public port on which Cryptoalarm will be available and existing virtual network name nano .env
+3. specify in `.env` container environment variables:
 ```
-NETWORK=<docker_network>
-HTTP_PORT=<public_port>
+POSTGRES_USER=<username>
+POSTGRES_PASSWORD=<password>
+POSTGRES_DB=<database>
+POSTGRES_PORT=<postgres port, should be 5432>
+LOCAL_VOLUME_MOUNT_POINT=<mounting point for volumes>
+NETWORK=<networkname>
+HTTP_PORT=<public http port>
+HTTPS_PORT=<public https port>
 ```
 4. copy web application environmental variables file 
-`cp ./demixer/.env.example ./demixer/.env`
+`cp ./cryptoalarm-web/laravel/.env.example ./cryptoalarm-web/laravel/.env`
 
-5. specify in `./demixer/.env` following parameters (where for Bitcoin/Litecoin clients you may consider to deploy JANE [cryptoclients module](https://github.com/nesfit/jane-cryptoclients/))
+5. specify in `./cryptoalarm-web/laravel/.env` following parameters:
 ```
-CLUSTER_CLIENT=<DeMixer compatible cluster provider>
-BTC_CORE_HOSTNAME=<host running official Bitcoin client>
-BTC_CORE_PORT=<port for RPC calls>
-BTC_CORE_USERNAME=<Bitcoin client RPC username>
-BTC_CORE_PASSWORD=<Bitcoin client RPC password>
-LTC_CORE_HOSTNAME=<host running official Litecoin client>
-LTC_CORE_PORT=<port for RPC calls>
-LTC_CORE_USERNAME=<Litecoin client RPC username>
-LTC_CORE_PASSWORD=<Litecoin client RPC password>
+DB_HOST=<postgres_host>
+DB_PORT=5432
+DB_DATABASE=<postgres_db>
+DB_USERNAME=<postgres_username>
+DB_PASSWORD=<postgres_password>
 ```
-6. pull containers from [Docker hub repository](https://hub.docker.com/repository/docker/nesatfit/demix-app) `docker-compose pull`
+6. pull [parsing script](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-app) and [web app](https://hub.docker.com/repository/docker/nesatfit/cryptoalarm-web) containers from Docker hub repository `docker-compose pull`
 
-7. optionally build web application locally `docker-compose build demix-app`
+7. optionally build parsing script and web application containers locally `docker-compose build demix-app`
 
 8. run containers `docker-compose up -d`
 
