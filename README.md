@@ -11,7 +11,7 @@ Requirement for Cryptoalarm was to create an application that allows transac-tio
 * offer scalability for further extension with new cryptocurrencies;
 * process transactions in blocks of the main chain when chain split is detected.
 
-Following  requirements  were  specified  for  a  web  application  designated  towatchlist management:
+Following  requirements  were  specified  for  a  web  application  designated  to watchlist management:
 * multi-user watchlist management;
 * address and cryptocurrency specification;
 * input/output involvement selection;
