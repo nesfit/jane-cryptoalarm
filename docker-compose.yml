@@ -4,7 +4,7 @@ services:
     build:
       context: ./cryptoalarm-app/
       dockerfile: Dockerfile
-    image: cryptoalarm-app
+    image: nesatfit/cryptoalarm-app:1.0
     container_name: cryptoalarm-app
     restart: always
 #    command: python run.py --init
@@ -17,7 +17,7 @@ services:
     build:
       context: ./cryptoalarm-web/
       dockerfile: Dockerfile
-    image: cryptoalarm-web
+    image: nesatfit/cryptoalarm-web:1.0
     container_name: cryptoalarm-web
     restart: always
     working_dir: /var/www
@@ -30,7 +30,7 @@ services:
       - ./cryptoalarm-web/config/.env:/var/www/.env
 
   nginx:
-    image: nginx:1.10
+    image: nginx:latest
     working_dir: /var/www
     container_name: cryptoalarm-nginx
     restart: always
@@ -57,14 +57,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  adminer:
-    image: adminer
-    container_name: cryptoalarm-adminer
-    restart: always
-    depends_on:
-      - "postgres"
-    ports:
-      - ${ADMINER_PORT}:8080
+#  adminer:
+#    image: adminer
+#    container_name: cryptoalarm-adminer
+#    restart: always
+#    depends_on:
+#      - "postgres"
+#    ports:
+#      - ${ADMINER_PORT}:8080
 
 
 networks:
@@ -74,21 +74,12 @@ networks:
 
 volumes:
   postgres_data:
-#    driver: local-persist
-#    driver_opts:
-#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/postgres"
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/postgres"
 
   web_data:
-#    driver: local-persist
-#    driver_opts:
-#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/web"
+    driver: local-persist
+    driver_opts:
+      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/web"
 
-#  storage_data:
-#    driver: local-persist
-#    driver_opts:
-#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/storage"
-
-#  bootstrap_data:
-#    driver: local-persist
-#    driver_opts:
-#      mountpoint: "${LOCAL_VOLUME_MOUNT_POINT}/bootstrap"
