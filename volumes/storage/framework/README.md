@@ -1,1 +1,0 @@
-chmod 777 -R cache sessions views
