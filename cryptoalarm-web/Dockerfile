@@ -70,9 +70,9 @@ RUN npm install
 RUN npm build
 RUN npm run prod
 RUN cp .env.example .env
-RUN php artisan key:generate
-RUN php artisan config:cache
-RUN php artisan view:clear
+#RUN php artisan key:generate
+#RUN php artisan config:cache
+#RUN php artisan view:clear
 #RUN php artisan migrate
 #RUN php artisan db:seed
 
